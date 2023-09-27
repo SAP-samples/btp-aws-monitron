@@ -1,0 +1,18 @@
+{
+    "env": {
+        "account": "298555126612",
+        "region": "us-east-1"
+    },
+    "vpcId": "vpc-052cb29d1e8129700",
+    "subnet": "subnet-09cbbe51792b91743",
+    "stackName": "monitronsaptest",
+    "sapenv": {
+        "SAP_AEM_CREDENTIALS":"arn:aws:secretsmanager:eu-west-1:782110148236:secret:sapaem-credentials-iNmFXa",
+        "SAP_AEM_REST_URL": "https://mr-connection-giuyy7qx0z1.messaging.solace.cloud:9443/monitron/messages"
+    },
+    "ddbtablename": "configm4s",
+    "s3":{
+        "bucketname": "sapkendrapdfsearch"
+       },
+     "lambdaTimeout": 900
+}
