@@ -2,11 +2,11 @@
 
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/btp-events-to-business-actions-framework)](https://api.reuse.software/info/github.com/SAP-samples/btp-events-to-business-actions-framework)
 
-This repository contains code samples and instructions for developing an extension application in SAP BTP. The sample application has been developed in a partner collaboration to help customers integrate any type of events from systems into SAP ecosystem via SAP BTP. This application helps to configure actions that needs to be taken in SAP LoB systems based on the events that is received in SAP Advanced Event Mesh. The application scenario you will develop in this tutorial leverages Event-To-Business actions framework (extension application).
+This repository contains code samples and instructions for developing an extension application in SAP BTP. The sample application has been developed in a partner collaboration to help customers integrate any type of events from systems into SAP ecosystem via SAP BTP. This application helps to configure actions that needs to be taken in SAP LoB systems based on the events that is received in SAP Integration Suite, Advanced Event Mesh. The application scenario you will develop in this tutorial leverages Event-To-Business actions framework (extension application).
 
 This framework can be used in combination with any hyperscalar/telco IoT.
 
-In this tutorial, the **events** are received from **Amazon Monitron** and the **actions** for these events are taken in **SAP S/4HANA**. You can use this application to further customize it for other systems as well.
+In this tutorial, the **events** are received from **Amazon Monitron** and the **actions** for these events are taken in **SAP S/4HANA System**. You can use this application to further customize it for other systems as well.
 
  ## Table of Contents
 
@@ -31,7 +31,7 @@ In this tutorial, the **events** are received from **Amazon Monitron** and the *
 
 ## Solution Architecture
 
-The key services used from **Amazon AWS** are Amazon Monitron, Amazon Kinesis, Amazon S3, Amazon Lambda Function, AWS Secrets Manager. The services used from **SAP BTP** are the Cloud Foundry Runtime, SAP Advanced Event Mesh, SAP Connectivity service, SAP Private Link service, SAP Workflow Management and SAP Destination service.
+The key services used from **Amazon Web Services** are Amazon Monitron, Amazon Kinesis, Amazon S3, Amazon Lambda Function, AWS Secrets Manager. The services used from **SAP BTP** are the Cloud Foundry Runtime, SAP Integration Suite Advanced Event Mesh, SAP Connectivity service, SAP Private Link service, SAP Build Process Automation- Decisions, SAP HANA Cloud , SAP Business Application Studio and SAP Destination service.
 
 SAP Private Link service is used for connectivity between SAP BTP and SAP S/4HANA when both the systems are running on Amazon AWS Infrastructure, in this tutorial you will find implementation steps for SAP BTP Private Link service and AWS Private Link service. Alternatively you can use SAP Connectivity service and Cloud Connector for integration of SAP BTP and SAP S/4HANA as well.
 
@@ -61,6 +61,7 @@ For more information, see Set Up Connectivity Between SAP BTP and SAP S/4HANA Us
 These are the technical prerequistics for an integration between AWS IoT Core, SAP BTP and SAP S/4HANA. 
 
 **Services in SAP BTP**
+
 - Cloud Foundry Runtime
     > - Foundation for running the CAP extension application for translating events to business actions.
 - Memory/Runtime quota
@@ -87,6 +88,7 @@ These are the technical prerequistics for an integration between AWS IoT Core, S
     >- A powerful and modern development environment, tailored for efficient development of business applications for the Intelligent Enterprise.
 
 **Amazon Web Services**
+
 - A valid AWS subscription
 
 - Amazon Monitron
@@ -95,7 +97,7 @@ These are the technical prerequistics for an integration between AWS IoT Core, S
 - Amazon S3
     > - Required to store the received streaming event data.
 
-- Amazon Secrets Manager
+- AWS Secrets Manager
     >- Required to store the Advanced Event Mesh credentials that are accessed by the Amazon Lambda Function.
 
 - Amazon Lambda Function
