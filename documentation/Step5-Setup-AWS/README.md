@@ -19,9 +19,9 @@ This project is set up like a standard Python project.  For an integrated develo
 2.  Clone the github repository and navigate to the directory.
 
    ```
-   git clone <git-repo-link>
+   git clone https://github.com/SAP-samples/btp-aws-monitron
 
-   cd aws-monitron-sap-integration
+   cd Code/AWS
    ```
 
 The `appConfig.json` file takes the input paramters for the stack. Maintain the following parameters in the `appConfig.json`.
