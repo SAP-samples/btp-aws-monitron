@@ -134,7 +134,31 @@ So your `appConfig.json` file looks as shown below: Fill all the details by foll
    }
    
    ```
+## AWS Credentials to access AWS account from SAP Business Application Studio
 
+1. Goto [AWS Console](https://us-east-1.console.aws.amazon.com) and search for **iam** and open the IAM console.
+
+![plot](./images/aws-iam-1.png)
+
+2. Click on **Users**
+
+![plot](./images/aws-iam-2.png)
+
+3. Click on your user, then click on **Security Credentials** tab and then click on **Create access key** button
+
+![plot](./images/aws-iam-3.png)
+
+4. In the **Create access key** page, select **Application running outside AWS** option and then click on **Next**
+
+![plot](./images/aws-iam-4.png)
+
+5. Click on **Create access key** button to create the access key
+
+![plot](./images/aws-iam-5.png)
+
+6. Note down the values of **Access key** and **Secret Access key** by clicking on the respective copy buttons.
+
+![plot](./images/aws-iam-6.png)
 
 ## Deploying the CDK Project
 
@@ -166,9 +190,15 @@ pip install -r requirements.txt
 
 The `appConfig.json` file takes the input paramters for the stack. We have already maintained all the parameters in the `appConfig.json` in the previous step.
 
-Add your AWS credentials configuration as below to allow SAP Business Application Studio environment to access your AWS account.
-* export AWS_ACCESS_KEY_ID="<your_access_key_here>"
-* export AWS_SECRET_ACCESS_KEY="<your_access_secret_here>"
+Add your AWS credentials configuration that you have created above (in the Step 6 of ## AWS Credentials to access AWS account from SAP Business Application Studio) as below to allow SAP Business Application Studio environment to access your AWS account by executing the below commands in the terminal.
+
+```
+export AWS_ACCESS_KEY_ID=<your_access_key_here>
+```
+
+```
+export AWS_SECRET_ACCESS_KEY=<your_access_secret_here>
+```
 
 Bootstrap your AWS account for CDK. Please check [AWS CDK Tools - AWS Cloud Development](https://docs.aws.amazon.com/cdk/latest/guide/tools.html) for more details on bootstraping for CDK. Bootstraping deploys a CDK toolkit stack to your account and creates a S3 bucket for storing various artifacts. You incur any charges for what the AWS CDK stores in the bucket. Because the AWS CDK does not remove any objects from the bucket, the bucket can accumulate objects as you use the AWS CDK. You can get rid of the bucket by deleting the CDKToolkit stack from your account.
 
