@@ -81,33 +81,37 @@ The following are the two SAP Environment variables:
 * `SAP_AEM_CREDENTIALS` (example: arn:aws:secretsmanager://region/account/secret:sapemauth-pnyaRN)
 * `SAP_AEM_REST_URL` (example: https://mr-connection-giuyy7qx0z1.messaging.solace.cloud:9443/topic)
 
-The values for these variables needs to be stored in the **AWS Secrets Manager**. Go to your **AWS account** and search for **secret**, choose **Secrets Manager**
+1. The values for these variables needs to be stored in the **AWS Secrets Manager**. Go to your **AWS account** and search for **secret**, choose **Secrets Manager**
 
  ![plot](./images/aws-secret.png)
 
-For Storing **SAP_AEM_CREDENTIALS** we need the Advanced Event Mesh UserName and Password. Open the Advanced Event Mesh Application from the BTP Cockpit. 
+2. For Storing **SAP_AEM_CREDENTIALS** we need the Advanced Event Mesh UserName and Password. Open the Advanced Event Mesh Application from the BTP Cockpit. 
 
  ![plot](./images/access-aem.png)
 
-In the Application, Navigate to the Cluster Service **Monitron** created in **Step1** and Click on **Connect** Tab. 
+3. In the Application, Navigate to the Cluster Service **Monitron** created in **Step1** and Click on **Connect** Tab. 
 
  ![plot](./images/aem-connect.png)
 
-Copy the **Username** and **Password**.  
+4. Copy the **Username** and **Password**.  
 
  ![plot](./images/aem-connect.png)
 
-Click on **Store a new secret**
+5. Click on **Store a new secret**
 
 ![plot](./images/create-secret-1.png)
 
-Choose **Other type of secret** option under **Secret type**. Add two key-value pairs as **UserName and Password** and Paste the values copied from **Advanced Event Mesh Application**. Click on **Next**
+6. Choose **Other type of secret** option under **Secret type**. Add two key-value pairs as **UserName and Password** and Paste the values copied from **Advanced Event Mesh Application**. Click on **Next**
 
 ![plot](./images/secret-keys.png)
 
-Fill the **Secret name** as **sapaem-credentials** and Click on **Next**
+7. Fill the **Secret name** as **sapaem-credentials** and Click on **Next**, Click on **Next** and then click on **Store** to store the secret.
 
-![plot](./images/secret-keys.png)
+![plot](./images/secret-store.png)
+
+8. Click on the created secret and copy the Secret ARN value.
+
+![plot](./images/secret-arn.png)
 
 
 So your `appConfig.json` file looks as shown below: Fill all the details by following the steps mentioned above. 
