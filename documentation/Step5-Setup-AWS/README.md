@@ -181,7 +181,7 @@ Deploy the stack to your account. Make sure your CLI is setup for account ID and
 ```
 cdk deploy
 ```
-## Cleanup
+## Cleanup (Do this step only if you want to delete all resources that you created in AWS)
 
 In order to delete all resources created by this CDK app, follow steps outlined in this [Steps-to-CleanUp](CleanupReadme.md)
 
