@@ -81,6 +81,8 @@ The following are the two SAP Environment variables:
 * `SAP_AEM_CREDENTIALS` (example: arn:aws:secretsmanager://region/account/secret:sapemauth-pnyaRN)
 * `SAP_AEM_REST_URL` (example: https://mr-connection-giuyy7qx0z1.messaging.solace.cloud:9443/topic)
 
+### For SAP_AEM_CREDENTIALS follow the steps below
+
 1. The values for these variables needs to be stored in the **AWS Secrets Manager**. Go to your **AWS account** and search for **secret**, choose **Secrets Manager**
 
  ![plot](./images/aws-secret.png)
@@ -101,7 +103,7 @@ The following are the two SAP Environment variables:
 
 ![plot](./images/create-secret-1.png)
 
-6. Choose **Other type of secret** option under **Secret type**. Add two key-value pairs as **UserName and Password** and Paste the values copied from **Advanced Event Mesh Application**. Click on **Next**
+6. Choose **Other type of secret** option under **Secret type**. Add two key-value pairs as `username` and `password` and Paste the values copied from **Advanced Event Mesh Application**. Click on **Next**
 
 ![plot](./images/secret-keys.png)
 
@@ -112,6 +114,18 @@ The following are the two SAP Environment variables:
 8. Click on the created secret and copy the Secret ARN value.
 
 ![plot](./images/secret-arn.png)
+
+### For SAP_AEM_REST_URL follow the steps below.
+
+1. Go to your Advanced Event Mesh Application, and from the **Connect** Tab, copy the **Secured REST Host**
+
+   ![plot](./images/aem-rest-url-1.png)
+
+2. You have previously created a topic subscription named `monitron/messages`
+
+   ![plot](./images/aem-rest-url-2.png)
+
+So, the **SAP_AEM_REST_URL** is `Secured_REST_Host`/monitron/messages. 
 
 
 So your `appConfig.json` file looks as shown below: Fill all the details by following the steps mentioned above. 
