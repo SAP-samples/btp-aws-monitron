@@ -19,9 +19,9 @@ This project is set up like a standard Python project.  For an integrated develo
 2.  Clone the github repository and navigate to the directory.
 
    ```
-   git clone <git-repo-link>
+   git clone https://github.com/SAP-samples/btp-aws-monitron
 
-   cd aws-monitron-sap-integration
+   cd Code/AWS
    ```
 
 The `appConfig.json` file takes the input paramters for the stack. Maintain the following parameters in the `appConfig.json`.
@@ -81,33 +81,37 @@ The following are the two SAP Environment variables:
 * `SAP_AEM_CREDENTIALS` (example: arn:aws:secretsmanager://region/account/secret:sapemauth-pnyaRN)
 * `SAP_AEM_REST_URL` (example: https://mr-connection-giuyy7qx0z1.messaging.solace.cloud:9443/topic)
 
-The values for these variables needs to be stored in the **AWS Secrets Manager**. Go to your **AWS account** and search for **secret**, choose **Secrets Manager**
+1. The values for these variables needs to be stored in the **AWS Secrets Manager**. Go to your **AWS account** and search for **secret**, choose **Secrets Manager**
 
  ![plot](./images/aws-secret.png)
 
-For Storing **SAP_AEM_CREDENTIALS** we need the Advanced Event Mesh UserName and Password. Open the Advanced Event Mesh Application from the BTP Cockpit. 
+2. For Storing **SAP_AEM_CREDENTIALS** we need the Advanced Event Mesh UserName and Password. Open the Advanced Event Mesh Application from the BTP Cockpit. 
 
  ![plot](./images/access-aem.png)
 
-In the Application, Navigate to the Cluster Service **Monitron** created in **Step1** and Click on **Connect** Tab. 
+3. In the Application, Navigate to the Cluster Service **Monitron** created in **Step1** and Click on **Connect** Tab. 
 
  ![plot](./images/aem-connect.png)
 
-Copy the **Username** and **Password**.  
+4. Copy the **Username** and **Password**.  
 
  ![plot](./images/aem-connect.png)
 
-Click on **Store a new secret**
+5. Click on **Store a new secret**
 
 ![plot](./images/create-secret-1.png)
 
-Choose **Other type of secret** option under **Secret type**. Add two key-value pairs as **UserName and Password** and Paste the values copied from **Advanced Event Mesh Application**. Click on **Next**
+6. Choose **Other type of secret** option under **Secret type**. Add two key-value pairs as **UserName and Password** and Paste the values copied from **Advanced Event Mesh Application**. Click on **Next**
 
 ![plot](./images/secret-keys.png)
 
-Fill the **Secret name** as **sapaem-credentials** and Click on **Next**
+7. Fill the **Secret name** as **sapaem-credentials** and Click on **Next**, Click on **Next** and then click on **Store** to store the secret.
 
-![plot](./images/secret-keys.png)
+![plot](./images/secret-store.png)
+
+8. Click on the created secret and copy the Secret ARN value.
+
+![plot](./images/secret-arn.png)
 
 
 So your `appConfig.json` file looks as shown below: Fill all the details by following the steps mentioned above. 
@@ -134,7 +138,31 @@ So your `appConfig.json` file looks as shown below: Fill all the details by foll
    }
    
    ```
+## AWS Credentials to access AWS account from SAP Business Application Studio
 
+1. Goto [AWS Console](https://us-east-1.console.aws.amazon.com) and search for **iam** and open the IAM console.
+
+![plot](./images/aws-iam-1.png)
+
+2. Click on **Users**
+
+![plot](./images/aws-iam-2.png)
+
+3. Click on your user, then click on **Security Credentials** tab and then click on **Create access key** button
+
+![plot](./images/aws-iam-3.png)
+
+4. In the **Create access key** page, select **Application running outside AWS** option and then click on **Next**
+
+![plot](./images/aws-iam-4.png)
+
+5. Click on **Create access key** button to create the access key
+
+![plot](./images/aws-iam-5.png)
+
+6. Note down the values of **Access key** and **Secret Access key** by clicking on the respective copy buttons.
+
+![plot](./images/aws-iam-6.png)
 
 ## Deploying the CDK Project
 
@@ -166,9 +194,15 @@ pip install -r requirements.txt
 
 The `appConfig.json` file takes the input paramters for the stack. We have already maintained all the parameters in the `appConfig.json` in the previous step.
 
-Add your AWS credentials configuration as below to allow SAP Business Application Studio environment to access your AWS account.
-* export AWS_ACCESS_KEY_ID="<your_access_key_here>"
-* export AWS_SECRET_ACCESS_KEY="<your_access_secret_here>"
+Add your AWS credentials configuration that you have created above (in the Step 6 of ## AWS Credentials to access AWS account from SAP Business Application Studio) as below to allow SAP Business Application Studio environment to access your AWS account by executing the below commands in the terminal.
+
+```
+export AWS_ACCESS_KEY_ID=<your_access_key_here>
+```
+
+```
+export AWS_SECRET_ACCESS_KEY=<your_access_secret_here>
+```
 
 Bootstrap your AWS account for CDK. Please check [AWS CDK Tools - AWS Cloud Development](https://docs.aws.amazon.com/cdk/latest/guide/tools.html) for more details on bootstraping for CDK. Bootstraping deploys a CDK toolkit stack to your account and creates a S3 bucket for storing various artifacts. You incur any charges for what the AWS CDK stores in the bucket. Because the AWS CDK does not remove any objects from the bucket, the bucket can accumulate objects as you use the AWS CDK. You can get rid of the bucket by deleting the CDKToolkit stack from your account.
 
@@ -181,7 +215,7 @@ Deploy the stack to your account. Make sure your CLI is setup for account ID and
 ```
 cdk deploy
 ```
-## Cleanup
+## Cleanup (Do this step only if you want to delete all resources that you created in AWS)
 
 In order to delete all resources created by this CDK app, follow steps outlined in this [Steps-to-CleanUp](CleanupReadme.md)
 
