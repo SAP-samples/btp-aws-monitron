@@ -62,46 +62,26 @@ These are the technical prerequistics for an integration between AWS IoT Core, S
 
 **Services in SAP BTP**
 
-- Cloud Foundry Runtime
-    > - Foundation for running the CAP extension application for translating events to business actions.
-- Memory/Runtime quota
-    > - Required for deploying and running the extension application in SAP BTP
-- Authorization & Trust Management Service
-    > - Required for securing the extension application in SAP BTP
-- SAP Integration Suite,Advanced Event Mesh 
-    >- Required to receive events from Amazon Monitron
-- SAP HANA Cloud 
-    >- Required to store action configuration and logs for CAP application
-- SAP HANA Schemas & HDI Containers 
-    >- Application database for CAP Application
-- SAP Process Automation - Business Rules capability
-    >- Business Rules service to configure business decisions that needs to be taken based on the type of event received from Amazon Monitron.
-- SAP S/4HANA System
-    >- To execute the business action associated with the event received. 
-- SAP Connectivity Service
-    >- To establish connections between cloud applications and on-premise systems.
-- SAP Destination Service
-    >- To find the destination information required to access a remote service or system from your extension application.
-- SAP Private Link Service
-    >- To establishe a private connection between selected SAP BTP services and selected services in your own IaaS provider accounts.
-- SAP Business Application Studio
-    >- A powerful and modern development environment, tailored for efficient development of business applications for the Intelligent Enterprise.
+- **Cloud Foundry Runtime** - Foundation for running the CAP extension application for translating events to business actions.
+- **Memory/Runtime quota** - Required for deploying and running the extension application in SAP BTP
+- **Authorization & Trust Management Service** - Required for securing the extension application in SAP BTP
+- **SAP Integration Suite,Advanced Event Mesh** - Required to receive events from Amazon Monitron
+- **SAP HANA Cloud** - Required to store action configuration and logs for CAP application
+- **SAP HANA Schemas & HDI Containers** - Application database for CAP Application
+-**SAP Build Process Automation, Decision capability** - Decision service to configure business decisions that needs to be taken based on the type of event received from Amazon Monitron.
+- **SAP S/4HANA System** - To execute the business action associated with the event received. 
+- **SAP Connectivity Service** - To establish connections between cloud applications and on-premise systems.
+- **SAP Destination Service** - To find the destination information required to access a remote service or system from your extension application.
+- **SAP Private Link Service** - To establishe a private connection between selected SAP BTP services and selected services in your own IaaS provider accounts.
+- **SAP Business Application Studio** - A powerful and modern development environment, tailored for efficient development of business applications for the Intelligent Enterprise.
 
 **Amazon Web Services**
 
 - A valid AWS subscription
-
-- Amazon Monitron
-    > - Required for receiving and sending the events whenever an abnormality is detected in the equipment.
-
-- Amazon S3
-    > - Required to store the received streaming event data.
-
-- AWS Secrets Manager
-    >- Required to store the Advanced Event Mesh credentials that are accessed by the Amazon Lambda Function.
-
-- Amazon Lambda Function
-    >- Required to orchestrate the process of detecting a stream contains any alerts related to failure or warnings, and then the inference result is passed to SAP Advanced Event Mesh.
+- **Amazon Monitron** - Required for receiving and sending the events whenever an abnormality is detected in the equipment.
+- **Amazon S3** - Required to store the received streaming event data.
+- **AWS Secrets Manager** - Required to store the Advanced Event Mesh credentials that are accessed by the Amazon Lambda Function.
+- **Amazon Lambda Function** - Required to orchestrate the process of detecting a stream contains any alerts related to failure or warnings, and then the inference result is passed to SAP Integration Suite Advanced Event Mesh.
 
 ## Configuration and Development
 
