@@ -71,5 +71,7 @@ If you already have an existing HANA Instance, you can map it to this SAP BTP su
 
 ### 4. Set Up SAP Business Application Studio
 
-Refer [Manage Authorizations and Roles](https://help.sap.com/docs/SAP%20Business%20Application%20Studio/9d1db9835307451daa8c930fbd9ab264/01e69c53003c4b0a8a64310a3f08867d.html) to assign permissions to users.
+1. Refer [Subscribe to SAP Business Application Studio](https://help.sap.com/docs/bas/sap-business-application-studio/subscribe-to-sap-business-application-studio) and subscribe to SAP Business Application Studio.
+
+2. Refer [Manage Authorizations and Roles](https://help.sap.com/docs/SAP%20Business%20Application%20Studio/9d1db9835307451daa8c930fbd9ab264/01e69c53003c4b0a8a64310a3f08867d.html) to assign permissions to users for accessing SAP Business Application Studio.
 

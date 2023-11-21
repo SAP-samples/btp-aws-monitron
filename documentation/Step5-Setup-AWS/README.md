@@ -2,7 +2,7 @@
 
 This project is set up like a standard Python project.  For an integrated development environment (IDE), use `SAP Business Application Studio` to create python virtual environment for the project with required dependencies.  
 
-1.To access the SAP Business Application Studio, go to your subaccount, navigate to **Services** > and choose **Instances and Subscriptions**.
+1. To access the SAP Business Application Studio, go to your subaccount, navigate to **Services** > and choose **Instances and Subscriptions**.
    Choose the row for the SAP Business Application Studio subscription and choose **Go to Application**
 
    ![plot](./images/access-BAS.png)
@@ -20,7 +20,9 @@ This project is set up like a standard Python project.  For an integrated develo
 
    ```
    git clone https://github.com/SAP-samples/btp-aws-monitron
+   ```
 
+   ```
    cd Code/AWS
    ```
 
@@ -81,11 +83,13 @@ The following are the two SAP Environment variables:
 * `SAP_AEM_CREDENTIALS` (example: arn:aws:secretsmanager://region/account/secret:sapemauth-pnyaRN)
 * `SAP_AEM_REST_URL` (example: https://mr-connection-giuyy7qx0z1.messaging.solace.cloud:9443/topic)
 
+### For SAP_AEM_CREDENTIALS, follow the steps below.
+
 1. The values for these variables needs to be stored in the **AWS Secrets Manager**. Go to your **AWS account** and search for **secret**, choose **Secrets Manager**
 
  ![plot](./images/aws-secret.png)
 
-2. For Storing **SAP_AEM_CREDENTIALS** we need the Advanced Event Mesh UserName and Password. Open the Advanced Event Mesh Application from the BTP Cockpit. 
+2. For Storing **SAP_AEM_CREDENTIALS** we need the Advanced Event Mesh Username and Password. Open the Advanced Event Mesh Application from the BTP Cockpit. 
 
  ![plot](./images/access-aem.png)
 
@@ -101,7 +105,7 @@ The following are the two SAP Environment variables:
 
 ![plot](./images/create-secret-1.png)
 
-6. Choose **Other type of secret** option under **Secret type**. Add two key-value pairs as **UserName and Password** and Paste the values copied from **Advanced Event Mesh Application**. Click on **Next**
+6. Choose **Other type of secret** option under **Secret type**. Add two key-value pairs as **username and password** and Paste the values copied from **Advanced Event Mesh Application**. Click on **Next**
 
 ![plot](./images/secret-keys.png)
 
@@ -109,10 +113,21 @@ The following are the two SAP Environment variables:
 
 ![plot](./images/secret-store.png)
 
-8. Click on the created secret and copy the Secret ARN value.
+8. Click on the created secret and copy the Secret ARN value and use it in appConfig.json for **SAP_AEM_CREDENTIALS**.
 
 ![plot](./images/secret-arn.png)
 
+### For SAP_AEM_REST_URL, follow the steps below.
+ 
+1. Go to your Advanced Event Mesh Application, and from the **Connect** Tab, copy the **Secured REST Host**
+ 
+   ![plot](./images/aem-rest-url-1.png)
+ 
+2. You have previously created a topic subscription named `monitron/messages`
+ 
+   ![plot](./images/aem-rest-url-2.png)
+ 
+So, the **SAP_AEM_REST_URL** is `Secured_REST_Host`/monitron/messages
 
 So your `appConfig.json` file looks as shown below: Fill all the details by following the steps mentioned above. 
 
@@ -129,9 +144,8 @@ So your `appConfig.json` file looks as shown below: Fill all the details by foll
         "SAP_AEM_CREDENTIALS":"<your_secret_arn>",
         "SAP_AEM_REST_URL": "<your_aem_rest_url>"
     },
-    "ddbtablename": "myddb",
     "s3":{
-        "bucketname": "mybucket",
+        "bucketname": "<your_s3_bucket>",
         "inferencefolder":"monitron"
        },
      "lambdaTimeout": 900

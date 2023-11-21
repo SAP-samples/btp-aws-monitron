@@ -10,9 +10,9 @@
         "SAP_AEM_CREDENTIALS":"arn:aws:secretsmanager:eu-west-1:782110148236:secret:sapaem-credentials-iNmFXa",
         "SAP_AEM_REST_URL": "https://mr-connection-giuyy7qx0z1.messaging.solace.cloud:9443/monitron/messages"
     },
-    "ddbtablename": "configm4s",
     "s3":{
-        "bucketname": "sapkendrapdfsearch"
+        "bucketname": "sapkendrapdfsearch",
+        "inferencefolder":"monitron"
        },
      "lambdaTimeout": 900
 }
