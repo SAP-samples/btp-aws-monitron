@@ -84,7 +84,7 @@ In this section, you will update decision table and activate business rule proje
 
     ![plot](./images/ActivateMonitronRuleServices.png)
 
-18. Choose **Rules** tab and select **FetchEquipmentDetails** and then choose **Edit** and **Activate**.
+18. Choose **Rules** tab and select **FetchEquipmentDetails** and then choose **Edit** and then update the Bucket Name value with the Amazon S3 bucket name that you have created earlier. Update the Equipment Id and Plant Location based on your SAP S/4HANA system configuration and then click on **Activate** button.
 
     ![plot](./images/ActivateMonitronRules.png)
 

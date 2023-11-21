@@ -161,7 +161,12 @@ Your configuration should look like this:
 
 ![plot](./images/FetchEquipmentDetails.png)
 
-8. Create another business action with name **Create PM Notification** and enter the following  configuration values.
+8. Create another business action with name as **Create PM Notification**. Under Related Actions, click on **Create** button, choose the **Flow Type** as Pre Action,
+    and **Action** as FetchEquipmentDetails. Copy the corresponding **Relation ID** and replace it in the below payload.
+
+    ![plot](./images/relation-id-action.png)
+
+    Fill the other details as follows.
 
 ```
     Basic Information:
@@ -179,15 +184,15 @@ Your configuration should look like this:
     Payload: {
         
     "NotificationText":"Monitron error ",
-    "MaintNotifLongTextForEdit":"Needs Maintenance, Monitron location: ${{pre.717174c8-8f1c-4166-ab8f-cd946286ab04.Result[0].EquipmentDetails.Location}} and equipment: ${{pre.717174c8-8f1c-4166-ab8f-cd946286ab04.Result[0].EquipmentDetails.Equipment}}",
-    "NotificationType": "M1","TechnicalObject": "${{pre.717174c8-8f1c-4166-ab8f-cd946286ab04.Result[0].EquipmentDetails.Equipment}}",
+    "MaintNotifLongTextForEdit":"Needs Maintenance, Monitron location: ${{pre.<Relation ID>.Result[0].EquipmentDetails.Location}} and equipment: ${{pre.<Relation ID>.Result[0].EquipmentDetails.Equipment}}",
+    "NotificationType": "M1","TechnicalObject": "${{pre.<Relation ID>.Result[0].EquipmentDetails.Equipment}}",
     "TechObjIsEquipOrFuncnlLoc": "EAMS_EQUI",
-    "TechnicalObjectLabel": "${{pre.717174c8-8f1c-4166-ab8f-cd946286ab04.Result[0].EquipmentDetails.Equipment}}"
+    "TechnicalObjectLabel": "${{pre.<Relation ID>.Result[0].EquipmentDetails.Equipment}}"
 
     }
     Is Csrf Token Needed?: true
 
-    Related Actions: 
+    Under Related Actions: 
     Flow Type: Pre Action
     Action: FetchEquipmentDetails
 ```

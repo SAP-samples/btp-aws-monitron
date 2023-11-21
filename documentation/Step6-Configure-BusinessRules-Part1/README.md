@@ -17,7 +17,7 @@ In this section, you will configure SAP Business Rule project which will be used
 
 4. In the **DETAILS** tab, 
 
-    - Choose a name and description of your choice for **Name** and **Description** field. 
+    - Enter the name as **ActionModelerSrv**  and description of your choice. 
     - In the **Destination** field, enter **action-management-srv-dest**.
     
     ![plot](./images/NewSystem.png)
@@ -44,7 +44,7 @@ In this section, you will configure SAP Business Rule project which will be used
 
     ![plot](./images/monitron-configs-zip.png)
 
-6. In the **Rule Services** tab, choose the **Settings** icon and then select **ID** from the **Define Column Properties** list.
+6. In the **Rule Services** tab, choose the **Settings** icon and then select **ID** from the **Define Column Properties** list and then click on **OK** button.
 
     ![plot](./images/BusinessRulesServices.png)
 

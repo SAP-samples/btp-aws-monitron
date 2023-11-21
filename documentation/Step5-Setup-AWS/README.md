@@ -73,7 +73,18 @@ The `appConfig.json` file takes the input paramters for the stack. Maintain the 
       
    4. In the AWS region select the region for your S3 bucket. **Please note that your bucket must be created in the same region as your VPC subnet**
       
-   5. Leave remaining options as default, scroll down and click 'Create' bucket.
+   5. Leave remaining options as default, scroll down and click 'Create bucket' button.
+
+      ![plot](./images/aws-create-bucket.png)
+   
+   6. Click on the bucket that you have just created in the above step and then click on **Create folder** button
+
+      ![plot](./images/aws-create-folder.png)
+   
+   7. Enter the Folder name as **monitron** and then click on **Create folder** button to create the folder.
+
+      ![plot](./images/aws-create-folder2.png)
+
       
 * `inferencefolder` Enter the name of the folder(prefix)where the inferences/data are sent (path to folder in your S3 bucket, for example, **s3bucket1/monitron** is the path and **monitron** is **inferencefolder**). Leave blank if no folder
 
