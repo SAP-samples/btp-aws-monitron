@@ -65,9 +65,9 @@ To set up SAP Integration Suite, Advanced Event Mesh for this scenario, follow t
 
 ### 3. Set Up SAP HANA Cloud Instance
 
-Refer [Deploy SAP HANA Cloud](https://developers.sap.com/tutorials/hana-cloud-deploying.html) to create an instance of SAP HANA Cloud in SAP BTP. 
+Refer [Create SAP HANA Cloud Database](https://developers.sap.com/tutorials/hana-cloud-deploying.html) to create an instance of SAP HANA Cloud in SAP BTP and map it to your Cloud Foundry space. 
 
-If you already have an existing HANA Instance, you can map it to this SAP BTP subaccount.
+If you already have an existing HANA Instance, you can map it to your BTP Cloud Foundry space by refering Step 2, point 2 of the above link.
 
 ### 4. Set Up SAP Business Application Studio
 
