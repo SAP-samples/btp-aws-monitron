@@ -43,14 +43,3 @@ In this section, you will configure SAP Business Rule project which will be used
     Similarly import the **MonitronActionConfigurations.zip** 
 
     ![plot](./images/monitron-configs-zip.png)
-
-6. In the **Rule Services** tab, choose the **Settings** icon and then select **ID** from the **Define Column Properties** list and then click on **OK** button.
-
-    ![plot](./images/BusinessRulesServices.png)
-
-    ![plot](./images/AddIDColumn.png)
-
-7. Copy the value of **ID** column from **DetermineAction** rule service.
-
-    ![plot](./images/BusinessRulesServicesList.png)
-
