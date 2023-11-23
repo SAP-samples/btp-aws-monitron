@@ -119,14 +119,12 @@ In this section, you will configure the different business actions that needs to
 
 5. In the **HTTP Information** section, enter the following configuration values.
 
-    **Note**: Replace **Rule Service ID** with the value copied from Create Business Rules Project section of the **Step6-Configure-BusinessRules-Part1** page.
-
     ```
     Destination: ACTION_BUSINESS_RULES
     Content-Type: application/json
     Method: POST
     Relative Path: /workingset-rule-services
-    Payload: { "RuleServiceId": "<RulesServiceID>","Vocabulary": [ { "EventInfo":{ "SourceSystem": "${{event.data.SourceSystem}}","DeviceLocation": "${{event.data.DeviceLocation}}","DeviceType": "${{event.data.DeviceType}}" } } ] }
+    Payload: { "RuleServiceId": "e74801505f304a729429958f51526403","Vocabulary": [ { "EventInfo":{ "SourceSystem": "${{event.data.SourceSystem}}","DeviceLocation": "${{event.data.DeviceLocation}}","DeviceType": "${{event.data.DeviceType}}" } } ] }
     Action Id Path in Response: Result[0].ActionInfo.ActionId
     ```
 
