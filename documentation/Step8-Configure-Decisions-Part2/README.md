@@ -17,25 +17,29 @@ In this section, you will update decision table and activate business rule proje
 
     ![plot](./images/FillActionId.png)
 
-    Paste the ActionId of the Action Created in Step-7.  
+5. Paste the `ActionId` copied from the [Step7-Configure-BusinessActions](../Step7-Configure-BusinessActions/README.md). 
 
     ![plot](./images/ActionId.png)
 
-5. The Decision is now configured with the Business Rule successfully. To use the decision in our CAP extension application we need to deploy all the latest changes in the Decision. 
+6. Your rule should look as follows. Now click on **Save** button to save the rule.
+
+    ![plot](./images/ActionId2.png)
+
+7. The Decision is now configured with the Rule successfully. To use the decision in our CAP extension application we need to deploy all the latest changes in the Decision. 
 
     First click on **Release** to release the Decisions. 
     
     ![plot](./images/RuleCreated.png)
 
-    Click on **Release**
+8. Select **Contains only patches**, **Version Number** is autofilled. Now Click on **Release**
 
     ![plot](./images/ProjectRelease.png)
 
-6. Now that the project is released, it is ready for deployment. Click on the **Deploy**
+9. Now that the project is released, it is ready for deployment. Click on the **Deploy**
 
     ![plot](./images/Deploy1.png)
 
-    Follow the steps shown in the following screenshots.
+10. Follow the steps shown in the following screenshots.
 
     ![plot](./images/Deploy2.png)
 
@@ -43,7 +47,7 @@ In this section, you will update decision table and activate business rule proje
 
     ![plot](./images/Deploy4.png)
 
-7. The Project is successfully Redeployed ! 
+11. The Project is successfully Redeployed ! 
 
     ![plot](./images/Deployed.png)
 

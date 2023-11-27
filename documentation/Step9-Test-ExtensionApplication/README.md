@@ -12,7 +12,7 @@ We have followed the first approach, that is, using the [payload](/documentation
 
     ![plot](./images/S3Search.png)
 
-2. Choose the **S3 Bucket** named **awspihe2ab** 
+2. Choose the **S3 Bucket** that you have created previously.
 
     ![plot](./images/S3BucketFolder.png)
 
