@@ -12,10 +12,8 @@
         "SAP_EM_OAUTH_CLIENT_ID": "sb-default-85d8f3d8-255c-4122-b170-17f93ee9db4e-clone!b156115|xbem-service-broker-!b2436",
         "SAP_EM_REST_URL": "https://enterprise-messaging-pubsub.cfapps.eu10.hana.ondemand.com/messagingrest/v1/topics/com%2Fsap%2Fpaa%2Findustry%2Fevent%2Fraised/messages"
     },
-    "ddbtablename": "configm4s",
     "s3":{
         "bucketname": "awspihe2ab",
-        "equipment": "CAM-01",
         "inferencefolder":"monitron"
     },
      "lambdaTimeout": 900

@@ -19,31 +19,23 @@ to generate the output is available in the github repo. Please make further modi
 If the SAP ECC or S/4 HANA system is an API provider to BTP, please use the below architecture. The architecture uses an APIKey for authentication. The preflow policy contains snippets from here to pass the provider credentials and xcsrf token to the consumer.
 ![architecture](/monitronarch.png)
 
-The API proxy and policy steps are taken from the [SAP documentation](https://blogs.sap.com/2020/08/10/consuming-sap-on-premise-data-through-sap-api-management/) to pass the APIKey and XCSRF token.  
-![API product](/APIproduct.png)
-![API](/API.png)
-![API](/APIPolicy.png)
-
-
 This project is intended to be sample code only. Not for use in production.
 
 This project will create the following in your AWS cloud environment specified:
 * Lambda Layers
 * Lambda for detecting Anomalies and creating notifications in SAP
 * Roles
-* DynamoDB
 * S3 Notifications
 
 ## Deploying the CDK Project
 
-This project is set up like a standard Python project.  For an integrated development environment (IDE), use `AWS Cloud9 environment` to create python virtual environment for the project with required dependencies.  
+This project is set up like a standard Python project.  
 
-1. Launch your AWS Cloud9 environment.
 
 2.  Clone the github repository and navigate to the directory.
 
 ```
-$ git clone https://github.com/aws-samples/aws-monitron-sap-integration.git
+$ git clone https://github.com/SAP-samples/btp-aws-monitron.git
 
 $ cd aws-monitron-sap-integration
 ```

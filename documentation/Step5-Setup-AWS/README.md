@@ -72,8 +72,10 @@ The `appConfig.json` file takes the input paramters for the stack. Maintain the 
    4. In the AWS region select the region for your S3 bucket. **Please note that your bucket must be created in the same region as your VPC subnet**
       
    5. Leave remaining options as default, scroll down and click 'Create' bucket.
+
+   6. Create a folder in the s3 bucket, name the folder as **monitron**.
       
-* `inferencefolder` Enter the name of the folder(prefix)where the inferences/data are sent (path to folder in your S3 bucket, for example, **s3bucket1/monitron** is the path and **monitron** is **inferencefolder**). Leave blank if no folder
+* `inferencefolder` Enter the name of the folder(prefix)where the inferences/data are sent (path to folder in your S3 bucket, for example, **your_s3_bucket/monitron** is the path and **monitron** is **inferencefolder**). Leave blank if no folder
 
 ## SAP Environnment details
 
@@ -81,7 +83,7 @@ The following are the two SAP Environment variables:
 * `SAP_AEM_CREDENTIALS` (example: arn:aws:secretsmanager://region/account/secret:sapemauth-pnyaRN)
 * `SAP_AEM_REST_URL` (example: https://mr-connection-giuyy7qx0z1.messaging.solace.cloud:9443/topic)
 
-### For SAP_AEM_CREDENTIALS follow the steps below
+### For SAP_AEM_CREDENTIALS, follow the steps below
 
 1. The values for these variables needs to be stored in the **AWS Secrets Manager**. Go to your **AWS account** and search for **secret**, choose **Secrets Manager**
 
@@ -115,7 +117,7 @@ The following are the two SAP Environment variables:
 
 ![plot](./images/secret-arn.png)
 
-### For SAP_AEM_REST_URL follow the steps below.
+### For SAP_AEM_REST_URL, follow the steps below.
 
 1. Go to your Advanced Event Mesh Application, and from the **Connect** Tab, copy the **Secured REST Host**
 
@@ -125,7 +127,7 @@ The following are the two SAP Environment variables:
 
    ![plot](./images/aem-rest-url-2.png)
 
-So, the **SAP_AEM_REST_URL** is `Secured_REST_Host`/monitron/messages. 
+So, the **SAP_AEM_REST_URL** is `Secured_REST_Host`/monitron/messages
 
 
 So your `appConfig.json` file looks as shown below: Fill all the details by following the steps mentioned above. 
@@ -143,9 +145,8 @@ So your `appConfig.json` file looks as shown below: Fill all the details by foll
         "SAP_AEM_CREDENTIALS":"<your_secret_arn>",
         "SAP_AEM_REST_URL": "<your_aem_rest_url>"
     },
-    "ddbtablename": "myddb",
     "s3":{
-        "bucketname": "mybucket",
+        "bucketname": "<your_s3_bucket>",
         "inferencefolder":"monitron"
        },
      "lambdaTimeout": 900

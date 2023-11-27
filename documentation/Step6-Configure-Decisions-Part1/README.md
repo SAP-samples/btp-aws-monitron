@@ -1,5 +1,4 @@
-## Create SAP Build Process Automation - Decisions Project
-In this section, you will configure SAP Business Rule project which will be used to determine which business action should be executed for an event. Additionally, based on your scenario you can create decision tables and business rules.
+In this section, you will configure SAP Build Process Automation project where a Decision will be used to determine which business action should be executed for an event. You will also configure a decision table in the decision project
 
 ### 1. Create SAP Build Process Automation Project
 
@@ -11,15 +10,17 @@ In this section, you will configure SAP Business Rule project which will be used
 
     ![plot](./images/lobby.png)
 
-3. Choose the **Build an Automated Process Tile**, and then choose **Business Process** Tile.
+3. Choose the **Build an Automated Process Tile**. 
 
     ![plot](./images/automatedprocess.png)
 
+    Choose **Business Process** Tile.
+
     ![plot](./images/process.png)
 
-4. Fill the project name as **Events-to-Business-Actions-Framework-xxx** and Choose **Create**
+4. Fill the project name as **Events-to-Business-Actions-Framework** and Choose **Create**
 
-    ![plot](./images/createproject.png)
+    ![plot](./images/createproject2.png)
 
     **Accept** the disclaimer if prompted!
 
@@ -55,7 +56,15 @@ In this section, you will configure SAP Business Rule project which will be used
 
     ![plot](./images/eventInfoDT.png)
 
-    **b.**  Click on **New Field** and Enter the following three field details and click on **Save**
+    **b.**  Click on **New Field** and Enter the **Field Details** as listed in the table below and click on **Save**.
+     **Note:** The values are case-sensitive.
+
+  
+    | Name | Type |
+    |---------|-------------|
+    | SourceSystem | String |
+    | DeviceType | String |
+    | DeviceLocation | String |
 
     ![plot](./images/eventDTFields.png)
 
@@ -67,7 +76,11 @@ In this section, you will configure SAP Business Rule project which will be used
 
     ![plot](./images/actionDTname.png)
 
-    **e.** Click on **New Field** and Enter the following three field details and click on **Save**
+    **e.** Click on **New Field** and Enter the **Field Details** as listed in the table below and click on **Save**
+
+    | Name | Type |
+    |---------|-------------|
+    | ActionId | String |
 
     ![plot](./images/actionDTFields.png)
 
@@ -81,19 +94,19 @@ In this section, you will configure SAP Business Rule project which will be used
 
     ![plot](./images/addRule.png)
 
-    **b.** Fill in the **Rule Name** as **DecideAction** and click on **Next Step**
+    **b.** Fill in the **Rule Name** as **DecideAction** and click on **Next Step** button.
 
     ![plot](./images/CreateRule1.png)
 
-    **c.** To configure the **Conditions** follow the steps shown below. 
+    **c.** To configure the **Conditions** follow the steps shown below. and Click on **Next Step** button.
 
     ![plot](./images/CreateRule2.png)
 
-    **d.** To configure the **Results** follow the steps shown below.
+    **d.** To configure the **Results** follow the steps shown below, and Click on **Next Step** button.
 
     ![plot](./images/CreateRule3.png)
 
-    **e.** Verify the **Review** Tab 
+    **e.** Verify the **Review** Tab and click on **Create** button
 
     ![plot](./images/CreateRule4.png)
 
@@ -101,27 +114,122 @@ In this section, you will configure SAP Business Rule project which will be used
 
     ![plot](./images/CreateRule5.png)
 
-    **g.** Fill the fields with following values:
-    ```
-        SourceSystem: ='Azure',
-        DeviceType: ='Silo',
-        DeviceLocation: ='Plant A'
+    **g.** Fill the fields with following values: **Note:** Paste the values along with **equals-to** operator. 
 
-        ActionId to be filled later.
-    ```
+    | SourceSystem | DeviceType |DeviceLocation | ActionId |
+    |---------|-------------|---------|-------------|
+    | = 'sap-monitron'   | = 'Motor'   |= '1017'   |  |
+
+
+    Leave the **ActionId** field empty as it is to be filled later.
+ 
     ![plot](./images/RuleField.png)
 
-5. To use the decision in our CAP extension application we need to deploy the Decision created. 
+5. We need to configure another decision, which provides with the "Plant Details" of the plant that needs maintenance. As configured above, the **Decision** configuration requires the **Input and Ouput parameters** as well as the business **Rule** that maps the incoming event to it's associated business action. To configure the Input/Output parameters we need to create the Custom Data Type with the fields that the incoming event payload contains.
+
+ Under the**Artifacts** Tab, Click on **Create** and choose **Data Types**.
+
+ ![plot](./images/DT1.png)
+
+6. We will be creating two data types namely **eventInfo** and **actionInfo** which will have the structure of the incoming event payload and the action Id respectively. To create the datatypes follow the steps shown below:
+
+    **a.** Create Data Type called **BucketInfo**
+
+    ![plot](./images/DT2.png)
+
+    **b.**  Click on **New Field** and Enter the **Field Details** as listed in the table below and click on **Save**.
+     **Note:** The values are case-sensitive. After saving, Navigate to **Overview** Tab.
+
+  
+    | Name | Type |
+    |---------|-------------|
+    | BucketName | String |
+
+    ![plot](./images/DT3.png)
+
+    **c.** Under the**Artifacts** Tab, Click on **Create** and choose **Data Types**.
+
+    ![plot](./images/DT4.png)
+
+    **d.** Create data type called **EqupmentDetails** 
+
+    ![plot](./images/DT5.png)
+
+    **e.** Click on **New Field** and Enter the **Field Details** as listed in the table below and click on **Save**
+
+    | Name | Type |
+    |---------|-------------|
+    | Location | String |
+    | Equipment | String |
+
+    ![plot](./images/DT6.png)
+
+7. Under the **Artifacts** Tab of your project, Click on **Create** and then choose **Decision** .
+
+    ![plot](./images/DT7.png)
+
+    Fill in the Decision Name as **Plant_Details** and Click on **Create**.
+
+    ![plot](./images/DT8.png)
+
+8. As we have now created the required data types for the decision, let us go to the **Plant_Details** and configure the Input/Output parameters as shown below. 
+
+    ![plot](./images/DT9.png)
+
+9. Fill the Input Paramter Name as **BucketInfo** and Choose the Type from the drop down as **BucketInfo** created previously. Fill the Output Parameter Name as **EquipmentDetails** and choose the Type from the as **EquipmentDetails**.
+
+    ![plot](./images/DT10.png)
+
+10. Next let us configure the **Rules**. Click on the **Rules** Tab.
+
+    ![plot](./images/DT11.png)
+
+11. Let us configure the rules.
+
+    **a.** Click on **Add Rule**
+
+    ![plot](./images/DT12.png)
+
+    **b.** Fill in the **Rule Name** as **FetchEquipmentDetails** and other details as shown in the picture below. click on **Next Step**
+
+    ![plot](./images/DT13.png)
+
+    **c.** To configure the **Conditions** follow the steps shown below. 
+
+    ![plot](./images/DT14.png)
+
+    **d.** To configure the **Results** follow the steps shown below.
+
+    ![plot](./images/DT15.png)
+
+    **e.** Verify the **Review** Tab, and Click on **Create** button.
+
+    ![plot](./images/DT16.png)
+
+    **f.** An empty **Decision Table** will be created.
+
+    ![plot](./images/DT17.png)
+
+    **g.** Fill the fields with values listed in the table below, and then click on the **Save** button. **Note:** Make sure the Location and Equipment are already maintained in your SAP S/4HANA system, or use the values of those that are already created in your SAP S/4HANA.
+
+    | BucketName | Location |Equipment |
+    |---------|-------------|---------|
+    | `<your_s3_bucket_name>`   | '1010-SPA-SAC-PLAR1-DMIV'    |'210100019'   |
+
+ 
+    ![plot](./images/DT18.png)
+
+12. To use the decision in our CAP extension application we need to deploy the Decision created. 
 
     First click on **Release** to release the Decisions. 
     
-    ![plot](./images/RuleCreated.png)
+    ![plot](./images/DT19.png)
 
     Click on **Release**
 
     ![plot](./images/ProjectRelease.png)
 
-6. Now that the project is released, it is ready for deployment. Click on the **Deploy**
+13. Now that the project is released, it is ready for deployment. Click on the **Deploy**
 
     ![plot](./images/Deploy1.png)
 
@@ -133,18 +241,26 @@ In this section, you will configure SAP Business Rule project which will be used
 
     ![plot](./images/Deploy4.png)
 
-7. The Project is successfully deployed ! 
+14. The Project is successfully deployed ! 
 
     ![plot](./images/Deployed.png)
 
 
-8. Go to **E2BDecision** , Click on the three dots to **View Details** and Click on **View Details**
+15. Go to **E2BDecision** , Click on the three dots to **View Details** and Click on **View Details**
 
     ![plot](./images/ViewDetails.png)
 
-    Copy the **Id** from the **Decision Details** , which will be used in the Next Step.
+    Copy the **Id** from the **Decision Details** , which will be used in the Next Step for default action configuration.
 
     ![plot](./images/ViewDetails2.png)
+
+16. Go to **Plant_Details** , Click on the three dots to **View Details** and Click on **View Details**
+
+    ![plot](./images/VD.png)
+
+    Copy the **Id** from the **Decision Details** , which will be used in the Next Step for pre-action configuration.
+
+    ![plot](./images/VD2.png)
  
 
 
