@@ -151,7 +151,7 @@ In this section, you will configure SAP Build Process Automation project where a
 
     ![plot](./images/DT4.png)
 
-    **d.** Create data type called **EqupmentDetails** 
+    **d.** Create data type called **EquipmentDetails** 
 
     ![plot](./images/DT5.png)
 
@@ -190,15 +190,16 @@ In this section, you will configure SAP Build Process Automation project where a
 
     ![plot](./images/DT12.png)
 
-    **b.** Fill in the **Rule Name** as **FetchEquipmentDetails** and other details as shown in the picture below. click on **Next Step**
+    **b.** Fill in the **Rule Name** as **FetchEquipmentDetails** and other details as shown in the picture below. click on **Next Step** button.
 
     ![plot](./images/DT13.png)
 
-    **c.** To configure the **Conditions** follow the steps shown below. 
+    **c.** To configure the **Conditions** follow the steps shown below and click on **Next Step** button.
+
 
     ![plot](./images/DT14.png)
 
-    **d.** To configure the **Results** follow the steps shown below.
+    **d.** To configure the **Results** follow the steps shown below and click on **Next Step** button.
 
     ![plot](./images/DT15.png)
 
@@ -210,7 +211,8 @@ In this section, you will configure SAP Build Process Automation project where a
 
     ![plot](./images/DT17.png)
 
-    **g.** Fill the fields with values listed in the table below, and then click on the **Save** button. **Note:** Make sure the Location and Equipment are already maintained in your SAP S/4HANA system, or use the values of those that are already created in your SAP S/4HANA.
+    **g.** Fill the fields with values listed in the table below, and then click on the **Save** button. 
+    **Note:** Make sure the Location and Equipment are already maintained in your SAP S/4HANA system, or use the values of those that are already created in your SAP S/4HANA.
 
     | BucketName | Location |Equipment |
     |---------|-------------|---------|
@@ -250,7 +252,7 @@ In this section, you will configure SAP Build Process Automation project where a
 
     ![plot](./images/ViewDetails.png)
 
-    Copy the **Id** from the **Decision Details** , which will be used in the Next Step for default action configuration.
+    Copy the **Id** from the **Decision Details** , which will be used in the Next Step for **default action configuration**, (remember this as **E2BDecisionId**).
 
     ![plot](./images/ViewDetails2.png)
 
@@ -258,7 +260,7 @@ In this section, you will configure SAP Build Process Automation project where a
 
     ![plot](./images/VD.png)
 
-    Copy the **Id** from the **Decision Details** , which will be used in the Next Step for pre-action configuration.
+    Copy the **Id** from the **Decision Details** , which will be used in the Next Step for **pre-action configuration**,(remember this as **Plant_Details_Id**).
 
     ![plot](./images/VD2.png)
  
