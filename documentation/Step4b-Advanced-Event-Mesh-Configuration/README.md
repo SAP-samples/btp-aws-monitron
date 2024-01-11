@@ -44,7 +44,7 @@
     
      ![plot](./images/aem-create-queue.png)
 
-     Enable both incoming and outgoing configuration
+     Enable both incoming and outgoing configuration and then click on **Apply** button.
     
      ![plot](./images/aem-queue2.png)    
 

@@ -201,11 +201,8 @@ Your configuration should look like this:
 
 ![plot](./images/FetchEquipmentDetails.png)
 
-7. Navigate back to **Manage Actions** and Click on **Create** button.
-
-    ![plot](./images/createaction.png)
-
-8. Create business action with name **Create PM Notification**. Under Related Actions, click on **Create** button, choose the Flow Type as **Pre Action**, and Action as **FetchEquipmentDetails**. Copy the corresponding **Relation ID** and replace it in the below payload and then click on **Create** button.
+8. Create another business action with name as **Create PM Notification**. Under Related Actions, click on **Create** button, choose the **Flow Type** as Pre Action,
+    and **Action** as FetchEquipmentDetails. Copy the corresponding **Relation ID** and replace it in the below payload.
 
     ![plot](./images/relation-id-action.png)
 
@@ -235,6 +232,9 @@ Your configuration should look like this:
     }
     Is Csrf Token Needed?: true
 
+    Under Related Actions: 
+    Flow Type: Pre Action
+    Action: FetchEquipmentDetails
 ```
 
 Your configuration should look like this:

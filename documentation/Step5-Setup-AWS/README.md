@@ -2,7 +2,7 @@
 
 This project is set up like a standard Python project.  For an integrated development environment (IDE), use `SAP Business Application Studio` to create python virtual environment for the project with required dependencies.  
 
-1.To access the SAP Business Application Studio, go to your subaccount, navigate to **Services** > and choose **Instances and Subscriptions**.
+1. To access the SAP Business Application Studio, go to your subaccount, navigate to **Services** > and choose **Instances and Subscriptions**.
    Choose the row for the SAP Business Application Studio subscription and choose **Go to Application**
 
    ![plot](./images/access-BAS.png)
@@ -20,7 +20,9 @@ This project is set up like a standard Python project.  For an integrated develo
 
    ```
    git clone https://github.com/SAP-samples/btp-aws-monitron
+   ```
 
+   ```
    cd Code/AWS
    ```
 
@@ -71,9 +73,18 @@ The `appConfig.json` file takes the input paramters for the stack. Maintain the 
       
    4. In the AWS region select the region for your S3 bucket. **Please note that your bucket must be created in the same region as your VPC subnet**
       
-   5. Leave remaining options as default, scroll down and click 'Create' bucket.
+   5. Leave remaining options as default, scroll down and click 'Create bucket' button.
 
-   6. Create a folder in the s3 bucket, name the folder as **monitron**.
+      ![plot](./images/aws-create-bucket.png)
+   
+   6. Click on the bucket that you have just created in the above step and then click on **Create folder** button
+
+      ![plot](./images/aws-create-folder.png)
+   
+   7. Enter the Folder name as **monitron** and then click on **Create folder** button to create the folder.
+
+      ![plot](./images/aws-create-folder2.png)
+
       
 * `inferencefolder` Enter the name of the folder(prefix)where the inferences/data are sent (path to folder in your S3 bucket, for example, **your_s3_bucket/monitron** is the path and **monitron** is **inferencefolder**). Leave blank if no folder
 
@@ -83,13 +94,13 @@ The following are the two SAP Environment variables:
 * `SAP_AEM_CREDENTIALS` (example: arn:aws:secretsmanager://region/account/secret:sapemauth-pnyaRN)
 * `SAP_AEM_REST_URL` (example: https://mr-connection-giuyy7qx0z1.messaging.solace.cloud:9443/topic)
 
-### For SAP_AEM_CREDENTIALS, follow the steps below
+### For SAP_AEM_CREDENTIALS, follow the steps below.
 
 1. The values for these variables needs to be stored in the **AWS Secrets Manager**. Go to your **AWS account** and search for **secret**, choose **Secrets Manager**
 
  ![plot](./images/aws-secret.png)
 
-2. For Storing **SAP_AEM_CREDENTIALS** we need the Advanced Event Mesh UserName and Password. Open the Advanced Event Mesh Application from the BTP Cockpit. 
+2. For Storing **SAP_AEM_CREDENTIALS** we need the Advanced Event Mesh Username and Password. Open the Advanced Event Mesh Application from the BTP Cockpit. 
 
  ![plot](./images/access-aem.png)
 
@@ -113,7 +124,7 @@ The following are the two SAP Environment variables:
 
 ![plot](./images/secret-store.png)
 
-8. Click on the created secret and copy the Secret ARN value.
+8. Click on the created secret and copy the Secret ARN value and use it in appConfig.json for **SAP_AEM_CREDENTIALS**.
 
 ![plot](./images/secret-arn.png)
 
