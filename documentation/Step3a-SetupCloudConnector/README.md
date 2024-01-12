@@ -36,19 +36,19 @@ Else, follow the below steps if you have SAP S/4HANA on-premise/private cloud an
 
     ![plot](./images/addsubaccount.png)
 
-    1. In the **Region** field, select your subaccount region.
+    a. In the **Region** field, select your subaccount region.
 
-    2. In the **Subaccount** field, enter the value of the subaccount ID you copied in the previous step.
+    b. In the **Subaccount** field, enter the value of the subaccount ID you copied in Step2.
 
-    3. In the **Display Name** field, enter a unique name of your choice.
+    c. In the **Display Name** field, enter a unique name of your choice.
 
-    4. In the **Login E-Mail** and **Password** fields, enter the Global Account Administrator's email ID and password.
+    d. In the **Login E-Mail** and **Password** fields, enter the Global Account Administrator's email ID and password.
 
     Your configuration should look like this:
 
     ![plot](./images/scc_initial_setup.png)
 
-    5. Choose **Save**.
+    e. Choose **Save**.
 
 ### 3. Create a Cloud to On-Premise Connection
 

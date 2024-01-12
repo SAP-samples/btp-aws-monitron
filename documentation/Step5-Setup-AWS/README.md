@@ -86,7 +86,7 @@ The `appConfig.json` file takes the input paramters for the stack. Maintain the 
       ![plot](./images/aws-create-folder2.png)
 
       
-* `inferencefolder` Enter the name of the folder(prefix)where the inferences/data are sent (path to folder in your S3 bucket, for example, **s3bucket1/monitron** is the path and **monitron** is **inferencefolder**). Leave blank if no folder
+* `inferencefolder` Enter the name of the folder(prefix)where the inferences/data are sent (path to folder in your S3 bucket, for example, **your_s3_bucket/monitron** is the path and **monitron** is **inferencefolder**). Leave blank if no folder
 
 ## SAP Environnment details
 
@@ -116,7 +116,7 @@ The following are the two SAP Environment variables:
 
 ![plot](./images/create-secret-1.png)
 
-6. Choose **Other type of secret** option under **Secret type**. Add two key-value pairs as **username and password** and Paste the values copied from **Advanced Event Mesh Application**. Click on **Next**
+6. Choose **Other type of secret** option under **Secret type**. Add two key-value pairs as `username` and `password` and Paste the values copied from **Advanced Event Mesh Application**. Click on **Next**
 
 ![plot](./images/secret-keys.png)
 
@@ -129,16 +129,17 @@ The following are the two SAP Environment variables:
 ![plot](./images/secret-arn.png)
 
 ### For SAP_AEM_REST_URL, follow the steps below.
- 
+
 1. Go to your Advanced Event Mesh Application, and from the **Connect** Tab, copy the **Secured REST Host**
- 
+
    ![plot](./images/aem-rest-url-1.png)
- 
+
 2. You have previously created a topic subscription named `monitron/messages`
- 
+
    ![plot](./images/aem-rest-url-2.png)
- 
+
 So, the **SAP_AEM_REST_URL** is `Secured_REST_Host`/monitron/messages
+
 
 So your `appConfig.json` file looks as shown below: Fill all the details by following the steps mentioned above. 
 
