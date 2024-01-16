@@ -44,11 +44,11 @@ The following steps depicts the information flow across systems:
 
 (2) and (3) Amazon Kinesis streams the sensor data from Amazon Monitron and dumps it into the Amazon S3 bucket.
 
-(4) AWS Lambda is a serverless function, which will orchestrate the process of detecting a stream contains any alerts related to failure or warnings, and then the inference result is passed to SAP Advanced Event Mesh.
+(4) AWS Lambda is a serverless function, which will orchestrate the process of detecting a stream contains any alerts related to failure or warnings, and then the inference result is passed to SAP Integration Suite, Advanced Event Mesh.
 
-(5a) AWS secrets manager is used to store credentials, these are used by the lambda function to provide payload to SAP Advanced Event Mesh.
+(5a) AWS secrets manager is used to store credentials, these are used by the lambda function to provide payload to SAP Integration Suite, Advanced Event Mesh.
 
-(5) Event-to-Business-Action framework(extension app) processor module's endpoint is subscribed to SAP Advanced Event Mesh, hence receives this event.
+(5) Event-to-Business-Action framework(extension app) processor module's endpoint is subscribed to SAP Integration Suite, Advanced Event Mesh, hence receives this event.
 
 (6) Event-to-Business-Action framework(extension app) processor module leverages the Business Rules capability of SAP Build Process Automation to derive business action (for example, In this scenario, Plant Maintenance Notification creation in SAP S/4HANA system) based on certain characteristics of incoming event.
 
@@ -80,7 +80,7 @@ These are the technical prerequistics for an integration between AWS IoT Core, S
 - A valid AWS subscription
 - **Amazon Monitron** - Required for receiving and sending the events whenever an abnormality is detected in the equipment.
 - **Amazon S3** - Required to store the received streaming event data.
-- **AWS Secrets Manager** - Required to store the Advanced Event Mesh credentials that are accessed by the Amazon Lambda Function.
+- **AWS Secrets Manager** - Required to store the SAP Integration, Advanced Event Mesh credentials that are accessed by the Amazon Lambda Function.
 - **Amazon Lambda Function** - Required to orchestrate the process of detecting a stream contains any alerts related to failure or warnings, and then the inference result is passed to SAP Integration Suite Advanced Event Mesh.
 
 ## Configuration and Development
@@ -105,11 +105,11 @@ Step 3: Connect SAP BTP and SAP S/4HANA
 
 [Step 5: Setup AWS Account](./documentation/Step5-Setup-AWS/README.md)
 
-[Step 6: Create SAP Business Rules Project](./documentation/Step6-Configure-BusinessRules-Part1/README.md)
+[Step 6: Create SAP Build Process Automation - Decision Project](./documentation/Step6-Configure-Decisions-Part1/README.md)
 
 [Step 7: Configure SAP S/4HANA Business Actions in the extension application](./documentation/Step7-Configure-BusinessActions/README.md)
 
-[Step 8: Update and Activate SAP Business Rule Project](./documentation/Step8-Configure-BusinessRules-Part2/README.md)
+[Step 8: Update and Deploy SAP Build Process Automation - Decision Project](./documentation/Step8-Configure-Decisions-Part2/README.md)
 
 [Step 9: Test the Extension Application](./documentation/Step9-Test-ExtensionApplication/README.md)
 
