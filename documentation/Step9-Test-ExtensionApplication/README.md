@@ -20,7 +20,7 @@ We have followed the first approach, that is, using the [payload](/documentation
 
     ![plot](./images/S3MonitronFolder.png)
 
-4. Download the **payload.txt** (payload.txt). This file has the sample event, which we use for testing the scenario. In the **monitron** folder, Choose **Upload**
+4. Download the **payload.txt** (./payload.txt). This file has the sample event, which we use for testing the scenario. In the **monitron** folder, Choose **Upload**
 
     ![plot](./images/S3Upload.png)
 
