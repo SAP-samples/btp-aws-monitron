@@ -6,7 +6,7 @@ From an SAP standpoint, we are only looking for inference data from Monitron. Wi
 2) Use the [Kinesis data generator](https://awslabs.github.io/amazon-kinesis-data-generator/web/producer.html) and use the [template file](/kinesisdatatemplate.json)  to simulate a kinesis stream.The sample [output file](/kinesissample.txt) contains a seriesof json documents.
 3) AN S3 bucket is a prerequisite for both these scenarios.
 
-We have followed the first approach, that is, using the [payload](/documentation/Step9-Test-ExtensionApplication/payload.txt) to test the scenario. Follow these steps to test the application.
+We have followed the first approach, that is, using the [payload](payload.txt) to test the scenario. Follow these steps to test the application.
 
 1. Go to to your AWS account and Navigate to **S3** Service.
 
