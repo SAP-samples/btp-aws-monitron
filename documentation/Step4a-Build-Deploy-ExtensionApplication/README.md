@@ -57,32 +57,4 @@ Build and deploy the application. Run the following commands:
 
     ![plot](./images/postdeploy.png)
 
-### 4. Add roles for accessing Business Rules
-
-1. In subaccount, choose **Security** > **Role Collections** and then choose **Create New Role Collection** icon.
-
-    ![plot](./images/RoleCollectionListCreate.png)
-
-2. Enter a value of your choice for the **Name** and **Description** field and choose **Create**.
-
-    ![plot](./images/CreateNewRoleCollection.png)
-
-3. Choose **Edit** to add roles and user to the created role collection.
-
-    ![plot](./images/EditRoleCollection.png)
-
-
-4. Select **RoleName** value help and then select the **RuleRepositorySuperUser** and **RuleRuntimeSuperUser** roles from the list.
-
-    ![plot](./images/RoleNameValueHelp.png)
-
-5. Choose **Add**.
-
-    ![plot](./images/SelectRoles.png)
-
-6. In the **Users** tab, enter your email id in **ID** and **E-Mail** input field and choose **Save**.
-
-7. Your configuration should look like below:
-
-    ![plot](./images/AddUserToRoleCollection.png)
 
