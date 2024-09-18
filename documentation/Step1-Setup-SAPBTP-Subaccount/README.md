@@ -61,15 +61,72 @@ To set up SAP Integration Suite, Advanced Event Mesh for this scenario, follow t
 5. Review the details and choose **Create**.
 
     ![plot](./images/aem-btp-finalscreen.png)
-    
 
-### 3. Set Up SAP HANA Cloud Instance
+
+### 3. Set Up SAP AI Core
+
+1. To access the SAP GenAI Hub, we need to set up SAP AI Core and SAP AI Launchpad. Please follow the **Step-1 Provisioning SAP AI Core** of this [tutorial](https://developers.sap.com/tutorials/ai-core-generative-ai..html#0a483e1a-fa25-4b87-b19f-cec54d6e7d40) to complete the initial set up. 
+
+2. Navigate to your **SAP BTP Subaccount** -> **Security** -> **Users**
+Search for your user, and add the necessary role collections to access and create deployments in AI Core using AI Launchpad. 
+
+![plot](./images/AI0.png)
+
+3. Now Navigate to **Services -> Instances and Subscriptions** and Click on **SAP AI Launchpad** as shown to open the application
+
+![plot](./images/AI1.png)
+
+4. In the **SAP AI Launchpad**, Navigate to **ML Operations -> Configurations**. Creating the configuration of **anthropic-cluade-3-sonnet** generative model of AWS Bedrock that we will be using in the development of this use case. Click on **Create** button to create a new configuration. (**Note**: Incase , you are unable to access this, please check if you have all the necessary role collections)
+
+![plot](./images/ai2.png)
+
+5. You can give the **Configuration Name** of your choice, and fill the other details as shown in the image below. . Choose **Next**
+
+![plot](./images/ai3.png)
+
+6. Leave the **Input Paramenters** and **Input Artificats** as is. Click **Next** and then Choose **Review**
+
+![plot](./images/ai4.png)
+
+7. Review all the configuration details and then **Click** on **Create** button to create the configuration. 
+
+![plot](./images/ai4.5.png)
+
+8. You will see the below screen with the **Configuration ID** once it is created. Now let us deploy this configuration, so that this model can be used for development. **Click** on **Create Deployment** button.
+
+![plot](./images/ai5.png)
+
+9. Under **Select Scenario**, choose **foundation-models** and click **Next**
+
+![plot](./images/ai6.png)
+
+10. Under **Select Executable**, choose **aws-bedrock** and click **Next**
+
+![plot](./images/ai7.png)
+
+11. Select the configuration we created **anthropic-claude-3-sonnet** and click **Next**
+
+![plot](./images/ai8.png)
+
+12. Select **Standard** duration and and click **Review**
+
+![plot](./images/ai9.png)
+
+13. Review all the deployment details and Click on **Create**.
+
+![plot](./images/ai9.5.png.png)
+
+14. On successful deployemnt, we get the deployment url. Copy this value to a notepad, as it will be used later.
+
+![plot](./images/ai10.png)
+
+### 4. Set Up SAP HANA Cloud Instance
 
 Refer [Create SAP HANA Cloud Database](https://developers.sap.com/tutorials/hana-cloud-deploying.html) to create an instance of SAP HANA Cloud in SAP BTP and map it to your Cloud Foundry space. 
 
 If you already have an existing HANA Instance, you can map it to your BTP Cloud Foundry space by refering Step 2, point 2 of the above link.
 
-### 4. Set Up SAP Business Application Studio
+### 5. Set Up SAP Business Application Studio
 
 1. Refer [Subscribe to SAP Business Application Studio](https://help.sap.com/docs/bas/sap-business-application-studio/subscribe-to-sap-business-application-studio) and subscribe to SAP Business Application Studio.
 

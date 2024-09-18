@@ -121,6 +121,31 @@ In this section, you will define business action in the action-management extens
 
         ![plot](./images/S4HANAOnPremiseDestination.png)
 
+7. Create a new destination with the name **AWS_BEDROCK_MODEL** and enter the following configuration values. This is used for calling the deployed generative model via SAP GenAI Hub.
+
+a. Navigate to your **SAP BTP Subaccount**, **Services -> Instances and Subscriptions** , search for the AI core instance that you have created, and under the **Service Keys**, Click on the menu as shown to see the details of the key.
+
+    - Paste the values of `api`, `clientid`, `clientsecret` and `url` which you have copied from previous step and update it for `URL`, `Client ID`, `Client Secret` and `Token Service URL` respectively as instructed below.
+
+    ```
+    Name: ACTION_DECISIONS
+    Type: HTTP
+    URL: `api`/public/rule/runtime/rest
+    Proxy: Internet
+    Authentication: OAuth2ClientCredentials
+    Client ID: `clientid`
+    Client Secret: `clientsercret``
+    Token Service URL Type: Dedicated
+    Token Service URL: `url`/oauth/token
+
+    Additional Properties:
+    HTML5.DynamicDestination: true
+    ```
+
+    Your destination configuration should look like this:
+
+    ![plot](./images/BusinessRulesDestination.png)
+
 ### 3. Configure Business Actions in  Manage Actions application
 
 In this section, you will configure the different business actions that needs to be executed based on the event received.
