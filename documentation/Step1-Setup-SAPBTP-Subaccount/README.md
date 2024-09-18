@@ -63,7 +63,7 @@ To set up SAP Integration Suite, Advanced Event Mesh for this scenario, follow t
     ![plot](./images/aem-btp-finalscreen.png)
 
 
-### 3. Set Up SAP AI Core
+### 3. Set Up SAP AI Core and AI  Launchpad
 
 1. To access the SAP GenAI Hub, we need to set up SAP AI Core and SAP AI Launchpad. Please follow the **Step-1 Provisioning SAP AI Core** of this [tutorial](https://developers.sap.com/tutorials/ai-core-generative-ai..html#0a483e1a-fa25-4b87-b19f-cec54d6e7d40) to complete the initial set up. 
 

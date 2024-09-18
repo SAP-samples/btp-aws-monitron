@@ -127,7 +127,7 @@ In this section, you will define business action in the action-management extens
 
     ![plot](./images/ai11.png)
 
-    **b.** Copy the values of `clientid`, `clientsecret` and `url` from the service key and use it to update `Client ID`, `Client Secret` and `Token Service URL` respectively as instructed below. Also the deployment url copied from [Step-1 - #Set Up for AI Core](../Step1-Setup-SAPBTP-Subaccount/README.md#3-set-up-sap-ai-core)
+    **b.** Copy the values of `clientid`, `clientsecret` and `url` from the service key and use it to update `Client ID`, `Client Secret` and `Token Service URL` respectively as instructed below. Also the deployment url copied from [Step-1 - #Set Up for AI Core](../Step1-Setup-SAPBTP-Subaccount/README.md#3-set-up-sap-ai-core-and-ai--launchpad)
 
     ![plot](./images/ai10.png)
 
