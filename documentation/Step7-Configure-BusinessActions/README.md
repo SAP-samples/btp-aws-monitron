@@ -123,28 +123,34 @@ In this section, you will define business action in the action-management extens
 
 7. Create a new destination with the name **AWS_BEDROCK_MODEL** and enter the following configuration values. This is used for calling the deployed generative model via SAP GenAI Hub.
 
-a. Navigate to your **SAP BTP Subaccount**, **Services -> Instances and Subscriptions** , search for the AI core instance that you have created, and under the **Service Keys**, Click on the menu as shown to see the details of the key.
+    **a.** Navigate to your **SAP BTP Subaccount**, **Services -> Instances and Subscriptions** , search for the AI core instance that you have created, and under the **Service Keys**, Click on the menu as shown to see the details of the key.
 
-    - Paste the values of `api`, `clientid`, `clientsecret` and `url` which you have copied from previous step and update it for `URL`, `Client ID`, `Client Secret` and `Token Service URL` respectively as instructed below.
+    ![plot](./images/ai11.png)
+
+    **b.** Copy the values of `clientid`, `clientsecret` and `url` from the service key and use it to update `Client ID`, `Client Secret` and `Token Service URL` respectively as instructed below. Also the deployment url copied from [Step-1 - #Set Up for AI Core](../Step1-Setup-SAPBTP-Subaccount/README.md#3-set-up-sap-ai-core)
+
+    ![plot](./images/ai10.png)
 
     ```
-    Name: ACTION_DECISIONS
+    Name: AWS_BEDROCK_MODEL
     Type: HTTP
-    URL: `api`/public/rule/runtime/rest
+    URL: `paste_your_deployment_url_here`
     Proxy: Internet
     Authentication: OAuth2ClientCredentials
-    Client ID: `clientid`
-    Client Secret: `clientsercret``
+    Client ID: `paste_your_clientid`
+    Client Secret: `paste_your_clientsercret``
     Token Service URL Type: Dedicated
-    Token Service URL: `url`/oauth/token
+    Token Service URL: `paste_your_url`/oauth/token
 
     Additional Properties:
     HTML5.DynamicDestination: true
+    URL.headers.AI-Resource-Group: default
+    URL.headers.Content-Type: application/json
     ```
 
     Your destination configuration should look like this:
 
-    ![plot](./images/BusinessRulesDestination.png)
+    ![plot](./images/AWS_BEDROCK_MODEL_DEST.png)
 
 ### 3. Configure Business Actions in  Manage Actions application
 
@@ -226,12 +232,44 @@ Your configuration should look like this:
 
 ![plot](./images/FetchEquipmentDetails.png)
 
+8. Create another business action with name **Get Summary from AWS BedRock Claude 3 Sonnet Model via SAP GenAI Hub**. In this pre-action we are sending a payload to the deployed Generative AI model, with propmt to summarize the received event. The Claude 3 sonnet model will then give us the summary of the event describing what caused the plant to undergo maintenance. This summary can then be used while creating the maintenance notification in the SAP S/4HANA System.
+
+Enter the following configuration values:
+
+```
+    Basic Information:
+
+    Action Name: Get Summary from AWS BedRock Claude 3 Sonnet Model via SAP GenAI Hub
+    Description: Call the AWS BedRock's Claude 3 Sonnet Model via SAP GenAI Hub for summarization task
+    Category: Pre/Post Action
+    Action Type: Service Integration
+    
+    HTTP Information:
+    Destination: AWS_BEDROCK_MODEL
+    Content-Type: application/json
+    Method: POST
+    Relative Path: /invoke
+    Payload: {"anthropic_version":"bedrock-2023-05-31","max_tokens":1000,"messages":[{"role":"user","content":"Given the following JSON data from Amazon Monitron, generate a summary in 100 words in plain text without any new line character. Describe the root cause of the issue. Mention any relevant values or levels that may have contributed to or impacted the issue.Do not use any special characters in the summary. Use the data provided:${{stringify(event.data)}}"}]}
+
+    Is Csrf Token Needed?: false
+
+```
+
+Your configuration should look like this:
+
+![plot](./images/getSummaryAction.png)
+
 8. Create another business action with name as **Create PM Notification**. Under Related Actions, click on **Create** button, choose the **Flow Type** as Pre Action,
-    and **Action** as FetchEquipmentDetails. Copy the corresponding **Relation ID** and replace it in the below payload.
+    and **Action** as **FetchEquipmentDetails**. Copy the corresponding **Relation_ID_1** and replace it in the below payload. 
 
     ![plot](./images/relation-id-action.png)
 
-    Fill the other details as follows.
+    Similarly, click on **Create** button, choose the **Flow Type** as Pre Action, and **Action** as **Get Summary from AWS BedRock Claude 3 Sonnet Model via SAP GenAI Hub**. Copy the corresponding **Relation_ID_2** and replace it at **MaintNotifLongTextForEdit** in the below payload
+
+    ![plot](./images/relId2-action.png)
+
+
+    Fill the other details as follows. Replace with the value of **Relation_ID_1** and **Relation_ID_2** at the correct places as mentioned in the payload below.
 
 ```
     Basic Information:
@@ -249,10 +287,10 @@ Your configuration should look like this:
     Payload: {
         
     "NotificationText":"Monitron error ",
-    "MaintNotifLongTextForEdit":"Needs Maintenance, Monitron location: ${{pre.<Relation ID>.Result[0].EquipmentDetails.Location}} and equipment: ${{pre.<Relation ID>.Result[0].EquipmentDetails.Equipment}}",
-    "NotificationType": "M1","TechnicalObject": "${{pre.<Relation ID>.Result[0].EquipmentDetails.Equipment}}",
+    "MaintNotifLongTextForEdit":"${{pre.<paste_Relation_ID_2_here>.content[0].text}}, Monitron location: ${{pre.<paste_Relation_ID_1_here>.Result[0].EquipmentDetails.Location}} and equipment: ${{pre.<paste_Relation_ID_1_here>.Result[0].EquipmentDetails.Equipment}}",
+    "NotificationType": "M1","TechnicalObject": "${{pre.<paste_Relation_ID_1_here>.Result[0].EquipmentDetails.Equipment}}",
     "TechObjIsEquipOrFuncnlLoc": "EAMS_EQUI",
-    "TechnicalObjectLabel": "${{pre.<Relation ID>.Result[0].EquipmentDetails.Equipment}}"
+    "TechnicalObjectLabel": "${{pre.<paste_Relation_ID_1_here>.Result[0].EquipmentDetails.Equipment}}"
 
     }
     Is Csrf Token Needed?: true
