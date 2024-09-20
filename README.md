@@ -36,7 +36,7 @@ The key services used from **Amazon Web Services** are Amazon Monitron, Amazon K
 SAP Private Link service is used for connectivity between SAP BTP and SAP S/4HANA when both the systems are running on Amazon AWS Infrastructure, in this tutorial you will find implementation steps for SAP BTP Private Link service and AWS Private Link service. Alternatively you can use SAP Connectivity service and Cloud Connector for integration of SAP BTP and SAP S/4HANA as well.
 
 
-![plot](./SolutionArchitecture.png) **Figure-1: High-level architecture (with SAP S/4HANA on AWS)**
+![plot](./Solution-Architecture.png) **Figure-1: High-level architecture (with SAP S/4HANA on AWS)**
 
 The following steps depicts the information flow across systems:
 
