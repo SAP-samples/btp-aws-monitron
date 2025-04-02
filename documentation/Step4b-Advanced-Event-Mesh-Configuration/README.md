@@ -14,14 +14,14 @@
 
     ![plot](./images/aem-create-service.png)
     
-    Fill the **Service Name** as **Monitron** and select **Service Type** as **Standard**. Select **Amazon Web Services** from the drop down menu for **Cloud**, Choose **Frankfurt** as **Region** from the Map, leave the prepopulated version for **Broker Version** , for this tutorial.
+    Fill the **Service Name** as **IoTSitewise** and select **Service Type** as **Standard**. Select **Amazon Web Services** from the drop down menu for **Cloud**, Choose **Frankfurt** as **Region** from the Map, leave the prepopulated version for **Broker Version** , for this tutorial.
 
     Click on **Create Service**
 
     ![plot](./images/aem-service-created.png)
 
 
-4. Click on the created service **Monitron**
+4. Click on the created service **IoTSitewise**
     
     ![plot](./images/aem-service-screen1.png)
 
@@ -60,7 +60,7 @@
     
      ![plot](./images/aem-addtopicsubscription.png)
 
-     In the **Create Subscription** screen, type in the topic name as **monitron/messages** and click **Create**
+     In the **Create Subscription** screen, type in the topic name as **IoTSitewise/messages** and click **Create**
     
      ![plot](./images/aem-topic-name.png)    
 

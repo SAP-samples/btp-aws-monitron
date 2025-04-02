@@ -249,7 +249,7 @@ Enter the following configuration values:
     Content-Type: application/json
     Method: POST
     Relative Path: /invoke
-    Payload: {"anthropic_version":"bedrock-2023-05-31","max_tokens":1000,"messages":[{"role":"user","content":"Given the following JSON data from Amazon Monitron, generate a summary in 100 words in plain text without any new line character. Describe the root cause of the issue. Mention any relevant values or levels that may have contributed to or impacted the issue.Do not use any special characters in the summary. Use the data provided:${{stringify(event.data)}}"}]}
+    Payload: {"anthropic_version":"bedrock-2023-05-31","max_tokens":1000,"messages":[{"role":"user","content":"Given the following JSON data from AWS IoT Sitewise, generate a summary in 100 words in plain text without any new line character. Describe the root cause of the issue. Mention any relevant values or levels that may have contributed to or impacted the issue.Do not use any special characters in the summary. Use the data provided:${{stringify(event.data)}}"}]}
 
     Is Csrf Token Needed?: false
 
@@ -275,7 +275,7 @@ Your configuration should look like this:
     Basic Information:
 
     Action Name: Create PM Notification
-    Description: Create notification in SAP PM for Monitron
+    Description: Create notification in SAP PM for IoT Sitewise
     Category: Main Action
     Action Type: Service Integration
     
@@ -286,8 +286,8 @@ Your configuration should look like this:
     Relative Path: /API_MAINTNOTIFICATION/MaintenanceNotification
     Payload: {
         
-    "NotificationText":"Monitron error ",
-    "MaintNotifLongTextForEdit":"${{pre.<paste_Relation_ID_2_here>.content[0].text}}, Monitron location: ${{pre.<paste_Relation_ID_1_here>.Result[0].EquipmentDetails.Location}} and equipment: ${{pre.<paste_Relation_ID_1_here>.Result[0].EquipmentDetails.Equipment}}",
+    "NotificationText":"Iot sitewise error ",
+    "MaintNotifLongTextForEdit":"${{pre.<paste_Relation_ID_2_here>.content[0].text}}, IoT Sitewise location: ${{pre.<paste_Relation_ID_1_here>.Result[0].EquipmentDetails.Location}} and equipment: ${{pre.<paste_Relation_ID_1_here>.Result[0].EquipmentDetails.Equipment}}",
     "NotificationType": "M1","TechnicalObject": "${{pre.<paste_Relation_ID_1_here>.Result[0].EquipmentDetails.Equipment}}",
     "TechObjIsEquipOrFuncnlLoc": "EAMS_EQUI",
     "TechnicalObjectLabel": "${{pre.<paste_Relation_ID_1_here>.Result[0].EquipmentDetails.Equipment}}"

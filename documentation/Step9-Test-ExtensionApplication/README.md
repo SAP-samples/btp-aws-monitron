@@ -1,7 +1,7 @@
 ## Test the Extension Application and Execute the End-to-End Scenario
 
 Now that you have successfully deployed the extension application in SAP BTP and completed the configurations in AWS, SAP BTP and SAP S/4HANA. 
-From an SAP standpoint, we are only looking for inference data from Monitron. Without the actual hardware set up, This can be done in 2 ways
+From an SAP standpoint, we are only looking for inference data from AWS IoT Sitewise. Without the actual hardware set up, This can be done in 2 ways
 1) Use the [payload](/payload.txt) file as a sample to integrate into SAP.
 2) Use the [Kinesis data generator](https://awslabs.github.io/amazon-kinesis-data-generator/web/producer.html) and use the [template file](/kinesisdatatemplate.json)  to simulate a kinesis stream.The sample [output file](/kinesissample.txt) contains a seriesof json documents.
 3) AN S3 bucket is a prerequisite for both these scenarios.
@@ -16,11 +16,11 @@ We have followed the first approach, that is, using the [payload](payload.txt) t
 
     ![plot](./images/S3BucketFolder.png)
 
-3. Choose the folder named **monitron**
+3. Choose the folder named **sitewise**
 
     ![plot](./images/S3MonitronFolder.png)
 
-4. Download the **payload.txt** (payload.txt). This file has the sample event, which we use for testing the scenario. In the **monitron** folder, Choose **Upload**
+4. Download the **payload.txt** (payload.txt). This file has the sample event, which we use for testing the scenario. In the **sitewise** folder, Choose **Upload**
 
     ![plot](./images/S3Upload.png)
 

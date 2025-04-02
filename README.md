@@ -1,4 +1,4 @@
-# Integrate Events from Amazon Monitron with SAP S/4HANA using SAP BTP and Gen AI Hub
+# Integrate Events from AWS IoT SiteWise with SAP S/4HANA using SAP BTP and Gen AI Hub
 
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/btp-events-to-business-actions-framework)](https://api.reuse.software/info/github.com/SAP-samples/btp-events-to-business-actions-framework)
 
@@ -6,7 +6,7 @@ This repository contains code samples and instructions for developing an extensi
 
 This framework can be used in combination with any hyperscalar/telco IoT.
 
-In this tutorial, the **events** are received from **Amazon Monitron** and the **actions** for these events are taken in **SAP S/4HANA System**. You can use this application to further customize it for other systems as well.
+In this tutorial, the **events** are received from **AWS IoT SiteWise** and the **actions** for these events are taken in **SAP S/4HANA System**. You can use this application to further customize it for other systems as well.
 
  ## Table of Contents
 
@@ -26,12 +26,14 @@ In this tutorial, the **events** are received from **Amazon Monitron** and the *
 
 ## Scenario
 
-**Amazon Monitron** is an end-to-end system including hardware ( sensors and gateway) and software, that uses machine learning to detect abnormal conditions in industrial equipment and enable predictive maintenance. However, the output of machine learning in industrial operations only provides valuable results if action is taken on the machine learning insights. To reduce the burden of change management and ensure action is taken on the Monitron inferences, this sample project has demonstrated how to automatically record the Amazon Monitron inferences in SAP Plant maintenance/asset management.
+**AWS IoT SiteWise** is a managed service with which you can collect, store, organize and monitor data from industrial equipment at scale to help you make better, data-driven decisions. You can use AWS IoT SiteWise to monitor operations across facilities, quickly compute common industrial performance metrics, and create applications that analyze industrial equipment data to prevent costly equipment issues and reduce gaps in production.
+
+However, the events only provides valuable results if any business action is taken on them. To reduce the burden of change management and ensure action is taken on the AWS IoT SiteWise events, this sample project has demonstrated how to automatically record the AWS IoT SiteWise inferences in SAP Plant maintenance/asset management.
 
 
 ## Solution Architecture
 
-The key services used from **Amazon Web Services** are Amazon Monitron, Amazon Kinesis, Amazon S3, Amazon Lambda Function, AWS Secrets Manager. The services used from **SAP BTP** are the Cloud Foundry Runtime, SAP Integration Suite Advanced Event Mesh, SAP Connectivity service, SAP Private Link service, SAP Build Process Automation- Decisions, SAP HANA Cloud , SAP Business Application Studio and SAP Destination service, SAP AI Core, SAP AI Launchpad.
+The key services used from **Amazon Web Services** are AWS IoT SiteWise, Amazon Kinesis, Amazon S3, Amazon Lambda Function, AWS Secrets Manager. The services used from **SAP BTP** are the Cloud Foundry Runtime, SAP Integration Suite Advanced Event Mesh, SAP Connectivity service, SAP Private Link service, SAP Build Process Automation- Decisions, SAP HANA Cloud , SAP Business Application Studio and SAP Destination service, SAP AI Core, SAP AI Launchpad.
 
 SAP Private Link service is used for connectivity between SAP BTP and SAP S/4HANA when both the systems are running on Amazon AWS Infrastructure, in this tutorial you will find implementation steps for SAP BTP Private Link service and AWS Private Link service. Alternatively you can use SAP Connectivity service and Cloud Connector for integration of SAP BTP and SAP S/4HANA as well.
 
@@ -40,9 +42,9 @@ SAP Private Link service is used for connectivity between SAP BTP and SAP S/4HAN
 
 The following steps depicts the information flow across systems:
 
-(1) Event is triggered from Amazon Monitron Hardware and sent to Amazon Monitron Software.
+(1) Event is triggered from AWS IoT SiteWise.
 
-(2) and (3) Amazon Kinesis streams the sensor data from Amazon Monitron and dumps it into the Amazon S3 bucket.
+(2) and (3) Amazon Kinesis streams the sensor data from AWS IoT SiteWise and dumps it into the Amazon S3 bucket.
 
 (4) AWS Lambda is a serverless function, which will orchestrate the process of detecting a stream contains any alerts related to failure or warnings, and then the inference result is passed to SAP Integration Suite, Advanced Event Mesh.
 
@@ -67,10 +69,10 @@ These are the technical prerequistics for an integration between AWS IoT Core, S
 - **Cloud Foundry Runtime** - Foundation for running the CAP extension application for translating events to business actions.
 - **Memory/Runtime quota** - Required for deploying and running the extension application in SAP BTP
 - **Authorization & Trust Management Service** - Required for securing the extension application in SAP BTP
-- **SAP Integration Suite,Advanced Event Mesh** - Required to receive events from Amazon Monitron
+- **SAP Integration Suite,Advanced Event Mesh** - Required to receive events from AWS IoT SiteWise
 - **SAP HANA Cloud** - Required to store action configuration and logs for CAP application
 - **SAP HANA Schemas & HDI Containers** - Application database for CAP Application
--**SAP Build Process Automation, Decision capability** - Decision service to configure business decisions that needs to be taken based on the type of event received from Amazon Monitron.
+-**SAP Build Process Automation, Decision capability** - Decision service to configure business decisions that needs to be taken based on the type of event received from AWS IoT SiteWise.
 - **SAP S/4HANA System** - To execute the business action associated with the event received. 
 - **SAP Connectivity Service** - To establish connections between cloud applications and on-premise systems.
 - **SAP Destination Service** - To find the destination information required to access a remote service or system from your extension application.
@@ -82,7 +84,7 @@ These are the technical prerequistics for an integration between AWS IoT Core, S
 **Amazon Web Services**
 
 - A valid AWS subscription
-- **Amazon Monitron** - Required for receiving and sending the events whenever an abnormality is detected in the equipment.
+- **AWS IoT SiteWise** - Required for receiving and sending the events whenever an abnormality is detected in the equipment.
 - **Amazon S3** - Required to store the received streaming event data.
 - **AWS Secrets Manager** - Required to store the SAP Integration, Advanced Event Mesh credentials that are accessed by the Amazon Lambda Function.
 - **Amazon Lambda Function** - Required to orchestrate the process of detecting a stream contains any alerts related to failure or warnings, and then the inference result is passed to SAP Integration Suite Advanced Event Mesh.
@@ -133,11 +135,11 @@ No known issues.
 
 ## Reference
 
-[AWS Monitron](https://docs.aws.amazon.com/Monitron/latest/user-guide/what-is-monitron.html)
+[AWS IoT SiteWise](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/what-is-sitewise.html)
 
 ## Disclaimer
 
-This project has been a proof of concept, including several limitations and prerequisites. The objective was to build a extension application for receiving and automating the actions in SAP S/4HANA. For this reason, the coding should not be seen as any recommendation for productive implementation. It fulfils the purpose and requirements of a proof of concept and is not intended for productive usage. It has been declared as pure proof of concept only to give the development teams ideas for solving potential challenges when integrating events from other platforms like AWS Monitron and SAP S/4HANA using SAP BTP. This can be extended to integrate with any other SAP LoB system as well.
+This project has been a proof of concept, including several limitations and prerequisites. The objective was to build a extension application for receiving and automating the actions in SAP S/4HANA. For this reason, the coding should not be seen as any recommendation for productive implementation. It fulfils the purpose and requirements of a proof of concept and is not intended for productive usage. It has been declared as pure proof of concept only to give the development teams ideas for solving potential challenges when integrating events from other platforms like AWS IoT SiteWise and SAP S/4HANA using SAP BTP. This can be extended to integrate with any other SAP LoB system as well.
 
 ## How to Obtain Support
 
