@@ -249,7 +249,7 @@ Enter the following configuration values:
     Content-Type: application/json
     Method: POST
     Relative Path: /invoke
-    Payload: {"anthropic_version":"bedrock-2023-05-31","max_tokens":1000,"messages":[{"role":"user","content":"Given the following JSON data from AWS IoT Sitewise, generate a summary in 100 words in plain text without any new line character. Describe the root cause of the issue. Mention any relevant values or levels that may have contributed to or impacted the issue.Do not use any special characters in the summary. Use the data provided:${{stringify(event.data)}}"}]}
+    Payload: {"anthropic_version":"bedrock-2023-05-31","max_tokens":1000,"messages":[{"role":"user","content":"Given the following JSON data from AWS IoT SiteWise, generate a summary in 100 words in plain text without any new line character. Describe the root cause of the issue. Mention any relevant values or levels that may have contributed to or impacted the issue.Do not use any special characters in the summary. Use the data provided:${{stringify(event.data)}}"}]}
 
     Is Csrf Token Needed?: false
 
