@@ -33,7 +33,7 @@ However, the events only provides valuable results if any business action is tak
 
 ## Solution Architecture
 
-The key services used from **Amazon Web Services** are AWS IoT SiteWise, Amazon Kinesis, Amazon S3, Amazon Lambda Function, AWS Secrets Manager. The services used from **SAP BTP** are the Cloud Foundry Runtime, SAP Integration Suite Advanced Event Mesh, SAP Connectivity service, SAP Private Link service, SAP Build Process Automation- Decisions, SAP HANA Cloud , SAP Business Application Studio and SAP Destination service, SAP AI Core, SAP AI Launchpad.
+The key services used from **Amazon Web Services** are AWS IoT SiteWise, Amazon S3, Amazon Lambda Function, AWS Secrets Manager. The services used from **SAP BTP** are the Cloud Foundry Runtime, SAP Integration Suite Advanced Event Mesh, SAP Connectivity service, SAP Private Link service, SAP Build Process Automation- Decisions, SAP HANA Cloud , SAP Business Application Studio and SAP Destination service, SAP AI Core, SAP AI Launchpad.
 
 SAP Private Link service is used for connectivity between SAP BTP and SAP S/4HANA when both the systems are running on Amazon AWS Infrastructure, in this tutorial you will find implementation steps for SAP BTP Private Link service and AWS Private Link service. Alternatively you can use SAP Connectivity service and Cloud Connector for integration of SAP BTP and SAP S/4HANA as well.
 
@@ -44,7 +44,7 @@ The following steps depicts the information flow across systems:
 
 (1) Event is triggered from AWS IoT SiteWise.
 
-(2) and (3) Amazon Kinesis streams the sensor data from AWS IoT SiteWise and dumps it into the Amazon S3 bucket.
+(2) The sensor data from AWS IoT SiteWise is dumped into the Amazon S3 bucket.
 
 (4) AWS Lambda is a serverless function, which will orchestrate the process of detecting a stream contains any alerts related to failure or warnings, and then the inference result is passed to SAP Integration Suite, Advanced Event Mesh.
 
