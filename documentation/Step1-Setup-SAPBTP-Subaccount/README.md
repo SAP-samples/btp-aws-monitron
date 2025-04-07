@@ -116,7 +116,7 @@ Search for your user, and add the necessary role collections to access and creat
 
 13. Review all the deployment details and Click on **Create**.
 
-![plot](./images/ai9.5.png.png)
+![plot](./images/ai9.5.png)
 
 14. On successful deployemnt, we get the deployment url. Copy this value to a notepad, as it will be used later.
 

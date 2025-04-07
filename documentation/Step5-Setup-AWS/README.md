@@ -81,12 +81,12 @@ The `appConfig.json` file takes the input paramters for the stack. Maintain the 
 
       ![plot](./images/aws-create-folder.png)
    
-   7. Enter the Folder name as **monitron** and then click on **Create folder** button to create the folder.
+   7. Enter the Folder name as **sitewise** and then click on **Create folder** button to create the folder.
 
       ![plot](./images/aws-create-folder2.png)
 
       
-* `inferencefolder` Enter the name of the folder(prefix)where the inferences/data are sent (path to folder in your S3 bucket, for example, **your_s3_bucket/monitron** is the path and **monitron** is **inferencefolder**). Leave blank if no folder
+* `inferencefolder` Enter the name of the folder(prefix)where the inferences/data are sent (path to folder in your S3 bucket, for example, **your_s3_bucket/sitewise** is the path and **sitewise** is **inferencefolder**). Leave blank if no folder
 
 ## SAP Environnment details
 
@@ -104,7 +104,7 @@ The following are the two SAP Environment variables:
 
  ![plot](./images/access-aem.png)
 
-3. In the Application, Navigate to the Cluster Service **Monitron** created in **Step1** and Click on **Connect** Tab. 
+3. In the Application, Navigate to the Cluster Service **IoTSitewise** created in **Step1** and Click on **Connect** Tab. 
 
  ![plot](./images/aem-connect.png)
 
@@ -134,11 +134,11 @@ The following are the two SAP Environment variables:
 
    ![plot](./images/aem-rest-url-1.png)
 
-2. You have previously created a topic subscription named `monitron/messages`
+2. You have previously created a topic subscription named `IoTSitewise/messages`
 
    ![plot](./images/aem-rest-url-2.png)
 
-So, the **SAP_AEM_REST_URL** is `Secured_REST_Host`/monitron/messages
+So, the **SAP_AEM_REST_URL** is `Secured_REST_Host`/IoTSitewise/messages
 
 
 So your `appConfig.json` file looks as shown below: Fill all the details by following the steps mentioned above. 
@@ -151,14 +151,14 @@ So your `appConfig.json` file looks as shown below: Fill all the details by foll
     },
     "vpcId": "<your_vpc_id>",
     "subnet": "<your_private_subnet>",
-    "stackName": "monitronsaptest",
+    "stackName": "iotsitewisesaptest",
     "sapenv": {
         "SAP_AEM_CREDENTIALS":"<your_secret_arn>",
         "SAP_AEM_REST_URL": "<your_aem_rest_url>"
     },
     "s3":{
         "bucketname": "<your_s3_bucket>",
-        "inferencefolder":"monitron"
+        "inferencefolder":"iotsitewise"
        },
      "lambdaTimeout": 900
    }

@@ -118,7 +118,7 @@ In this section, you will configure SAP Build Process Automation project where a
 
     | SourceSystem | DeviceType |DeviceLocation | ActionId |
     |---------|-------------|---------|-------------|
-    | = 'sap-monitron'   | = 'Motor'   |= '1017'   |  |
+    | = 'sap-sitewise'   | = 'Motor'   |= '1017'   |  |
 
 
     Leave the **ActionId** field empty as it is to be filled later.

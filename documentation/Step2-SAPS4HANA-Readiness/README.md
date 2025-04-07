@@ -1,6 +1,6 @@
 ## Check SAP S/4HANA Readiness
 In this section, you will activate the APIs related to plant maintenance notification for this scenario.
-API_MAINTNOTIFICATION API is supported from SAP S/4HANA 2022 onwards.
+API_MAINTNOTIFICATION API is supported from SAP S/4HANA 2022 onwards. Make sure to read this document for the necessary business user roles needed. [Find Maintenance Notifications](https://fioriappslibrary.hana.ondemand.com/sap/fix/externalViewer/#/detail/Apps('F4633')/S30PCE)
 
 ### Activate the API_MAINTNOTIFICATION Service
 
