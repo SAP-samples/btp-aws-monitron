@@ -44,11 +44,11 @@ The following steps depicts the information flow across systems:
 
 (1) Event is triggered from AWS IoT SiteWise.
 
-(2) The sensor data from AWS IoT SiteWise is dumped into the Amazon S3 bucket.
+(2) and (3) The sensor data from AWS IoT SiteWise is dumped into the Amazon S3 bucket.
 
-(4) AWS Lambda is a serverless function, which will orchestrate the process of detecting a stream contains any alerts related to failure or warnings, and then the inference result is passed to SAP Integration Suite, Advanced Event Mesh.
+(4a) AWS Lambda is a serverless function, which will orchestrate the process of detecting a stream contains any alerts related to failure or warnings, and then the inference result is passed to SAP Integration Suite, Advanced Event Mesh.
 
-(5a) AWS secrets manager is used to store credentials, these are used by the lambda function to provide payload to SAP Integration Suite, Advanced Event Mesh.
+(4b) AWS secrets manager is used to store credentials, these are used by the lambda function to provide payload to SAP Integration Suite, Advanced Event Mesh.
 
 (5), (6) Event-to-Business-Action framework(extension app) processor module's endpoint is subscribed to SAP Integration Suite, Advanced Event Mesh, hence receives this event.
 
