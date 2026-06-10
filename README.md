@@ -6,6 +6,7 @@ This repository contains code samples and instructions for developing an extensi
 
 This framework can be used in combination with any hyperscalar/telco IoT.
 
+
 In this tutorial, the **events** are received from **AWS IoT SiteWise** and the **actions** for these events are taken in **SAP S/4HANA System**. You can use this application to further customize it for other systems as well.
 
  ## Table of Contents
