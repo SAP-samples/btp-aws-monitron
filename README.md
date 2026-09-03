@@ -1,6 +1,7 @@
 # Integrate Events from AWS IoT SiteWise with SAP S/4HANA using SAP BTP and Gen AI Hub
 
-[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/btp-events-to-business-actions-framework)](https://api.reuse.software/info/github.com/SAP-samples/btp-events-to-business-actions-framework)
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/btp-aws-monitron)](https://api.reuse.software/info/github.com/SAP-samples/btp-aws-monitron)
+
 
 This repository contains code samples and instructions for developing an extension application in SAP BTP. The sample application has been developed in a partner collaboration to help customers integrate any type of events from systems into SAP ecosystem via SAP BTP. This application helps to configure actions that needs to be taken in SAP LoB systems based on the events that is received in SAP Integration Suite, Advanced Event Mesh. This application leverages Amazon Bedrock LLM Model via Gen AI hub to generate summary of the event which is then used for creating Business Actions in SAP system. The application scenario you will develop in this tutorial leverages Event-To-Business actions framework (extension application).
 
